@@ -149,8 +149,8 @@ const CoupleGraph = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <View></View>
-        <Image source={Images.coupleBible} style={styles.logo} />
+        <Text style={styles.backText}>{"< Back"}</Text>
+        <Text style={styles.logoText}>Preferences</Text>
         <View></View>
       </View>
 

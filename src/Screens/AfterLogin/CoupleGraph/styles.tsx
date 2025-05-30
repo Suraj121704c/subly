@@ -17,25 +17,18 @@ export const styles = StyleSheet.create({
   header: {
     width: '100%',
     paddingHorizontal: wp(5),
-    paddingTop: hp(2),
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: hp(5),
   },
-  logo: {
-    width: wp(40),
-    height: hp(5),
-    resizeMode: 'contain',
-  },
-  backIcon: {
-    width: hp(4),
-    height: hp(4),
-    resizeMode: 'contain',
+  backText: {
+    fontSize: hp(2.2),
+    fontFamily: fonts.regular,
+    color: Colors.purple,
   },
   logoText: {
     fontSize: hp(2.2),
-    fontFamily: fonts.bold,
+    fontFamily: fonts.spectralMedium,
     color: Colors.black,
   },
   logoBold: {
