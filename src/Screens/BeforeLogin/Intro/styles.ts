@@ -16,13 +16,11 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     alignSelf: 'center',
-    marginTop: hp(6),
   },
   coupleBibleImage: {
-    resizeMode: 'contain',
-    height: hp(2.5),
+    height: hp(5.5),
     width: wp(45),
-    marginTop: hp(2),
+    resizeMode: 'contain',
   },
   innerContainer: {
     flex: 1,
@@ -42,14 +40,23 @@ export const styles = StyleSheet.create({
     height: hp(40),
     width: wp(80),
   },
+  carouselImg2: {
+    resizeMode: 'contain',
+    height: hp(20),
+    width: wp(40),
+    alignSelf: 'center',
+  },
+  carouselImg3: {
+    resizeMode: 'contain',
+    height: hp(40),
+    alignSelf: 'center',
+  },
   title: {
     color: Colors.black,
-    fontSize: hp(3),
+    fontSize: hp(2.5),
     fontFamily: fonts.spectralMedium,
-    width: wp(80),
     textAlign: 'center',
     marginBottom: hp(1),
-    marginTop: hp(4),
   },
   descriptionTxt: {
     color: `${Colors.black}85`,

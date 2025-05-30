@@ -3,29 +3,49 @@ import {Images} from '../Utils/images';
 export const CarouselData = [
   {
     id: 1,
-    image: Images.appInfo1,
-    title: 'Grow Spiritually, Together',
-    description: 'Read scriptures daily as a couple and reflect with meaning.',
+    image: Images.brain,
+    title: 'Your subconscious mind controls 95% of your thoughts and actions',
+    description: 'It absorbs everything—even if you’re not aware of it.',
+    type : 'text',
   },
   {
     id: 2,
-    image: Images.appInfo2,
-    title: 'Strengthen Your Bond Through Shared Faith',
-    description: 'Read scripture daily as a couple and reflect with meaning.',
+    image: Images.brainSearch,
+    title: 'Neural pathways strengthen through repetition',
+    description: 'Listening daily rewires your mind for lasting change.',
+    type : 'text',
   },
   {
     id: 3,
-    image: Images.appInfo3,
-    title: 'Reflect, Remember, and Reinforce',
+    image: Images.nerves,
+    title: 'Subliminals work by bypassing the conscious mind and directly influencing the subconscious',
     description:
-      'Quick quizzes help you both understand and retain what you read—together.',
+      'That’s why you don’t have to “hear” them to benefit.',
+    type : 'text',
   },
   {
     id: 4,
-    image: Images.appInfo4,
-    title: "It's Easy to Drift. This Helps You Stay Anchored.",
+    image: Images.time,
+    title: "Your subconscious mind is always listening",
     description:
-      'Small daily moments in scripture can bring lasting connection.',
+      'The more consistent you are, the faster you’ll see change.',
+    type : 'text',
+  },
+  {
+    id: 5,
+    image: Images.calendar,
+    title: "It takes 21 days to rewire your subconscious",
+    description:
+      'Listen daily to create lasting changes.',
+    type : 'text',
+  },
+  {
+    id: 6,
+    image: Images.chat,
+    title: "What our users say",
+    image2: Images.comments,
+    type : 'image',
+
   },
 ];
 

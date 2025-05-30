@@ -50,4 +50,11 @@ export const Images = {
   bannerSubly: require('../Assets/Images/bannerSubly.png'),
   sublyLogo: require('../Assets/Images/sublyLogo.png'),
   squareTick: require('../Assets/Images/squareTick.png'),
+  brainSearch: require('../Assets/Images/brainSearch.png'),
+  nerves: require('../Assets/Images/nerves.png'),
+  brain: require('../Assets/Images/brain.png'),
+  time: require('../Assets/Images/time.png'),
+  calendar: require('../Assets/Images/calendar.png'),
+  chat: require('../Assets/Images/chat.png'),
+  comments: require('../Assets/Images/comments.png'),
 };

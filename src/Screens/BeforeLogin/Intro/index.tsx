@@ -98,13 +98,25 @@ const Intro = () => {
 
   const renderItem = (item: any) => {
     return (
-      <View style={styles.carouselContainer}>
+     <>
+     {
+      item.type === 'text' ? (
+        <View style={styles.carouselContainer}>
         <View style={styles.carouselView}>
           <Image source={item.image} style={styles.carouselImg} />
           <Text style={styles.title}>{item?.title}</Text>
           <Text style={styles.descriptionTxt}>{item?.description}</Text>
         </View>
       </View>
+      ) : (
+        <View style={styles.carouselContainer}>
+          <Image source={item.image} style={styles.carouselImg2} />
+          <Text style={styles.title}>{item?.title}</Text>
+          <Image source={item.image2} style={styles.carouselImg3} />
+        </View>
+      )
+     }
+     </>
     );
   };
 
@@ -135,7 +147,7 @@ const Intro = () => {
           />
         </View>
         <Button
-          title="Continue"
+          title="Next >"
           style={styles.nextBtn}
           btnStyle={styles.nextBtnTxt}
           onPress={handleNextPress}
