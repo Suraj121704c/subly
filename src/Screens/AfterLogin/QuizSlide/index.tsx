@@ -29,6 +29,7 @@ import CheckboxQuiz from '../../../Components/CheckBoxQuiz';
 import PillQuiz from '../../../Components/PillQuiz';
 
 const QUIZ_PROGRESS_KEY = 'quiz_slide_progress';
+const LAST_VIEWED_QUIZ_KEY = 'last_viewed_quiz';
 
 const QuizSlide = () => {
   const navigation = useNavigation<any>();
@@ -40,18 +41,30 @@ const QuizSlide = () => {
     const loadQuizProgress = async () => {
       try {
         const savedProgress = await Storage.getData(QUIZ_PROGRESS_KEY);
+        const lastViewedQuizId = await Storage.getData(LAST_VIEWED_QUIZ_KEY);
+        
         if (savedProgress) {
           const parsedProgress = JSON.parse(savedProgress);
           setQuizData(parsedProgress);
 
-          // Find the first incomplete quiz
-          const nextQuiz = parsedProgress.find(
-            (item: any) => !item.isQusComplete,
-          );
-          if (nextQuiz) {
-            setSelectedQuiz(nextQuiz);
-          } else {
-            navigation.replace(Route.Intro);
+          if (lastViewedQuizId) {
+            // Find the last viewed quiz
+            const lastQuiz = parsedProgress.find(
+              (item: any) => item.id === JSON.parse(lastViewedQuizId),
+            );
+            if (lastQuiz) {
+              setSelectedQuiz(lastQuiz);
+            } else {
+              // Find the first incomplete quiz if last viewed not found
+              const nextQuiz = parsedProgress.find(
+                (item: any) => !item.isQusComplete,
+              );
+              if (nextQuiz) {
+                setSelectedQuiz(nextQuiz);
+              } else {
+                navigation.replace(Route.Intro);
+              }
+            }
           }
         }
         setIsLoading(false);
@@ -79,6 +92,17 @@ const QuizSlide = () => {
       navigation.navigate(Route.Intro);
     }
   }, [quizData]);
+
+  // Save last viewed quiz when leaving
+  useEffect(() => {
+    const saveLastViewedQuiz = async () => {
+      if (selectedQuiz?.id) {
+        await Storage.saveData(LAST_VIEWED_QUIZ_KEY, JSON.stringify(selectedQuiz.id));
+      }
+    };
+
+    saveLastViewedQuiz();
+  }, [selectedQuiz]);
 
   const saveQuizProgress = async (updatedQuiz: any[]) => {
     try {
@@ -219,25 +243,67 @@ const QuizSlide = () => {
     }
   };
 
+  const _onBack = () => {
+    const currentIndex = quizData.findIndex(quiz => quiz.id === selectedQuiz.id);
+    if (currentIndex > 0) {
+      // If there's a previous quiz, go back to it
+      const previousQuiz = quizData[currentIndex - 1];
+      setSelectedQuiz(previousQuiz);
+      
+      // Update the quiz data to mark current quiz as incomplete
+      const updatedQuiz = quizData.map(item =>
+        item.id === selectedQuiz.id
+          ? {...selectedQuiz, isQusComplete: false, ans: undefined}
+          : item
+      );
+      setQuizData(updatedQuiz);
+      saveQuizProgress(updatedQuiz);
+    } else {
+      // If we're at the first quiz, navigate back
+      Alert.alert(
+        'Leave Quiz',
+        'Are you sure you want to leave? Your progress will be saved.',
+        [
+          {
+            text: 'Cancel',
+            style: 'cancel',
+          },
+          {
+            text: 'Leave',
+            onPress: () => {
+              Storage.saveData(LAST_VIEWED_QUIZ_KEY, JSON.stringify(selectedQuiz.id));
+              navigation.goBack();
+            },
+          },
+        ],
+      );
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <Image source={Images.coupleBible} style={styles.couplePhoto} />
+      <Image source={Images.sublyLogo} style={styles.couplePhoto} />
       <View style={styles.innerView}>
-        {/* <View style={styles.slideView}>
-          {quizData.map((item, index) => {
-            return (
-              <View
-                key={index}
-                style={{
-                  ...styles.slideStepView,
-                  backgroundColor: item.isQusComplete
-                    ? Colors.purple
-                    : Colors.gray,
-                }}
-              />
-            );
-          })}
-        </View> */}
+        <View style={styles.headerContainer}>
+          <TouchableOpacity onPress={_onBack} style={styles.backButton}>
+            <Image source={Images.back} style={styles.backIcon} />
+          </TouchableOpacity>
+          <View style={styles.slideView}>
+            {quizData.map((item, index) => {
+              return (
+                <View
+                  key={index}
+                  style={{
+                    ...styles.slideStepView,
+                    backgroundColor: item.isQusComplete
+                      ? Colors.purple
+                      : Colors.gray,
+                  }}
+                />
+              );
+            })}
+          </View>
+        </View>
         {selectedQuiz?.quizeType == 'radio' && (
           <View style={{flex: 1}}>
             <View style={{flex: 1}}>

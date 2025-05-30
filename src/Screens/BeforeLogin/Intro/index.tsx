@@ -123,7 +123,7 @@ const Intro = () => {
       barStyle="dark-content">
       <View style={styles.container}>
         <View style={styles.headerView}>
-          <Image source={Images.coupleBible} style={styles.coupleBibleImage} />
+          <Image source={Images.sublyLogo} style={styles.coupleBibleImage} />
         </View>
         <View style={styles.innerContainer}>
           <Carousel

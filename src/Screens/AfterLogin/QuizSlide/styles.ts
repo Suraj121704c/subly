@@ -19,14 +19,16 @@ export const styles = StyleSheet.create({
   },
   couplePhoto: {
     width: wp(45),
-    height: hp(2.5),
+    height: hp(5),
     resizeMode: 'contain',
     alignSelf: 'center',
   },
   slideView: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: hp(2),
+    flex: 1,
+    marginTop: 0,
+    marginLeft: wp(2),
   },
   slideStepView: {
     backgroundColor: Colors.purple,
@@ -150,5 +152,22 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: hp(2),
+    paddingHorizontal: wp(2),
+  },
+  backButton: {
+    padding: wp(1),
+  },
+  backIcon: {
+    width: wp(10),
+    height: wp(10),
+    resizeMode: 'contain',
+    borderWidth: wp(0.2),
+    borderColor: Colors.gray,
+    borderRadius: wp(5),
   },
 });

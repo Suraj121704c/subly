@@ -136,7 +136,7 @@ const AfterLoginNavigator = () => {
 
   return (
     <>
-      {progress >= 1 || route.name === Route.BottomTab ? null : (
+      {/* {progress >= 1 || route.name === Route.BottomTab ? null : (
         <SafeAreaView style={styles.progressBarContainer}>
           <Progress.Bar
             progress={progress}
@@ -146,7 +146,7 @@ const AfterLoginNavigator = () => {
             height={hp(0.6)}
           />
         </SafeAreaView>
-      )}
+      )} */}
       <AfterLoginStack.Navigator screenOptions={{headerShown: false}}>
         <AfterLoginStack.Screen name={Route.QuizSlide} component={QuizSlide} />
         <AfterLoginStack.Screen name={Route.Intro} component={Intro} />
