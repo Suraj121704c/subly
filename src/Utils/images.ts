@@ -46,4 +46,8 @@ export const Images = {
   book: require('../Assets/Images/book.png'),
   bell: require('../Assets/Images/bell.png'),
   tactic: require('../Assets/Images/tactic.png'),
+
+  // subly
+  bannerSubly: require('../Assets/Images/bannerSubly.png'),
+  sublyLogo: require('../Assets/Images/sublyLogo.png'),
 };

@@ -1,6 +1,7 @@
 import {
   Alert,
   Image,
+  SafeAreaView,
   ScrollView,
   Text,
   TouchableOpacity,
@@ -105,30 +106,21 @@ const Login = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
-        <Image source={Images.couplePhoto} style={styles.couplePhoto} />
+        <Image source={Images.bannerSubly} style={styles.couplePhoto} />
         <View style={styles.bottomView}>
-          <Image source={Images.coupleBible} style={styles.coupleBible} />
+          <Image source={Images.sublyLogo} style={styles.coupleBible} />
           <View style={styles.titleContainer}>
-            <Text style={styles.titleBlack}>Closer to </Text>
-            <Text style={styles.title}>God, </Text>
+            <Text style={styles.titleBlack}>Unlock lasting change with Subly’s subtle power.</Text>
           </View>
-          <View style={styles.titleContainer}>
-            <Text style={styles.titleBlack}>Closer to </Text>
-            <Text style={styles.title}>Each Other</Text>
-          </View>
-          <Text style={styles.description}>
-            Read the Bible, pray, and grow in faith — together, one day at a
-            time.
-          </Text>
         </View>
         <TouchableOpacity style={styles.registerBtn} onPress={appleLogin}>
           <Image source={Images.appleLogo} style={styles.appleLogo} />
           <Text style={styles.loginBtnText}>Continue with Apple</Text>
         </TouchableOpacity>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

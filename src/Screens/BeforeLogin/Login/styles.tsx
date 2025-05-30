@@ -14,8 +14,11 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.white,
   },
   couplePhoto: {
-    width: wp(100),
-    height: hp(60),
+    width: wp(90),
+    height: hp(50),
+    // resizeMode: 'contain',
+    alignSelf: 'center',
+    borderRadius: wp(5),
   },
   bottomView: {
     flexDirection: 'column',
@@ -24,10 +27,10 @@ export const styles = StyleSheet.create({
     paddingHorizontal: wp(5),
   },
   coupleBible: {
-    width: wp(40),
-    height: hp(2.5),
+    height: hp(8),
     resizeMode: 'contain',
     marginBottom: hp(2),
+    marginTop: hp(2),
   },
   titleContainer: {
     flexDirection: 'row',
@@ -36,9 +39,10 @@ export const styles = StyleSheet.create({
     paddingHorizontal: wp(5),
   },
   titleBlack: {
-    fontSize: hp(4),
-    fontFamily: fonts.spectralMedium,
+    fontSize: hp(3.5),
+    fontFamily: fonts.spectralRegular,
     color: Colors.black,
+    textAlign: 'center',
   },
   title: {
     fontSize: hp(4),
@@ -58,7 +62,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: wp(10),
     borderRadius: wp(10),
     position: 'absolute',
-    bottom: hp(3),
+    bottom: hp(1),
     width: wp(90),
     alignSelf: 'center',
     flexDirection: 'row',
