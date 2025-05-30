@@ -1,0 +1,36 @@
+export const Route = {
+  Loader: 'Loader',
+  AuthStack: 'BeforeLogin',
+  AppStack: 'AfterLogin',
+  BottomTab: 'BottomTab',
+
+  //AuthStack Screen
+  Intro: 'Intro',
+  Login: 'Login',
+  Register: 'Register',
+  Bible: 'Bible',
+
+  //AppStack Screen
+  Home: 'Home',
+  Rating: 'Rating',
+  VerseOfTheDay: 'VerseOfTheDay',
+  PrayerSession: 'PrayerSession',
+  QuizSection: 'QuizSection',
+  QuizQuestions: 'QuizQuestions',
+  QuizCompletion: 'QuizCompletion',
+  QuizSlide: 'QuizSlide',
+  ImageSlider: 'ImageSlider',
+  Profile: 'Profile',
+  Superwall: 'Superwall',
+  IntoScreen: 'IntoScreen',
+  CoupleGraph: 'CoupleGraph',
+  AnimatedCouple: 'AnimatedCouple',
+  KnowTheMeaning: 'KnowTheMeaning',
+  Plans: 'Plans',
+  PlanDetails: 'PlanDetails',
+  SetReminderScreen: 'SetReminderScreen',
+  PlanVerseExplanation: 'PlanVerseExplanation',
+  BookVerseExplanation: 'BookVerseExplanation',
+  BookDetails: 'BookDetails',
+  BookReminder: 'BookReminder',
+};

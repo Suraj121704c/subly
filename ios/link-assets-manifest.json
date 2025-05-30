@@ -1,0 +1,97 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/Assets/Fonts/Geist-Black.ttf",
+      "sha1": "68476dc1b24a356d99e8b32c1de2b6acf8231e4b"
+    },
+    {
+      "path": "src/Assets/Fonts/Geist-Bold.ttf",
+      "sha1": "026330c06c7e45d360dfbd2ce6a803fe5f4d1a6a"
+    },
+    {
+      "path": "src/Assets/Fonts/Geist-ExtraBold.ttf",
+      "sha1": "c2805b3b87453a9db5633f250ea12b29dddceb46"
+    },
+    {
+      "path": "src/Assets/Fonts/Geist-ExtraLight.ttf",
+      "sha1": "df5c95e7da53b65006e4cf8dcb3e16a56ef29367"
+    },
+    {
+      "path": "src/Assets/Fonts/Geist-Light.ttf",
+      "sha1": "6115346b1691a5650edfe8e60c5c13a92833789f"
+    },
+    {
+      "path": "src/Assets/Fonts/Geist-Medium.ttf",
+      "sha1": "a600be28e2aace53fefa81e3f1fd1f05c978ef77"
+    },
+    {
+      "path": "src/Assets/Fonts/Geist-Regular.ttf",
+      "sha1": "edafc7c65cff343e301e4ccd5b5680bb726ff9e7"
+    },
+    {
+      "path": "src/Assets/Fonts/Geist-SemiBold.ttf",
+      "sha1": "fcdef3c84b886c795dd344a6fc663b1097793c16"
+    },
+    {
+      "path": "src/Assets/Fonts/Geist-Thin.ttf",
+      "sha1": "434d2a1d4260832117515be784c38773a7bab6c0"
+    },
+    {
+      "path": "src/Assets/Fonts/Spectral-Bold.ttf",
+      "sha1": "b2d503ef6102b6831a03d1af3a71d48f3bc502b5"
+    },
+    {
+      "path": "src/Assets/Fonts/Spectral-BoldItalic.ttf",
+      "sha1": "881d393b7cbaf16ee87fc1fac21679cd2c93df1b"
+    },
+    {
+      "path": "src/Assets/Fonts/Spectral-ExtraBold.ttf",
+      "sha1": "0fa5a955e402eed04e71de6b977c2e210895296b"
+    },
+    {
+      "path": "src/Assets/Fonts/Spectral-ExtraBoldItalic.ttf",
+      "sha1": "d4a41883d888b3e3504e8b20e4ce13ab9e5fcf92"
+    },
+    {
+      "path": "src/Assets/Fonts/Spectral-ExtraLight.ttf",
+      "sha1": "d918daf537fc76d6e5aa8eef222681a2c39fa65a"
+    },
+    {
+      "path": "src/Assets/Fonts/Spectral-ExtraLightItalic.ttf",
+      "sha1": "2ed91b32aed1fd93d1b5cfc5bfb95b7bf9c5b0fd"
+    },
+    {
+      "path": "src/Assets/Fonts/Spectral-Italic.ttf",
+      "sha1": "5dc31b65666f3ffe2180422dc9009342580a14ba"
+    },
+    {
+      "path": "src/Assets/Fonts/Spectral-Light.ttf",
+      "sha1": "93d1eff54b714d56f243bb907cdebb82d192e876"
+    },
+    {
+      "path": "src/Assets/Fonts/Spectral-LightItalic.ttf",
+      "sha1": "695643b3580dc9e30d88e14cb06ccfe13c1c1d01"
+    },
+    {
+      "path": "src/Assets/Fonts/Spectral-Medium.ttf",
+      "sha1": "825369ec0d07b55e62046351a01ae89b4cd53cb2"
+    },
+    {
+      "path": "src/Assets/Fonts/Spectral-MediumItalic.ttf",
+      "sha1": "9133a6a5d5074a8c82de56aaadf562bf4a2ad76d"
+    },
+    {
+      "path": "src/Assets/Fonts/Spectral-Regular.ttf",
+      "sha1": "81265cf27ab9295bd2f62d34d3fa007b0dfccc99"
+    },
+    {
+      "path": "src/Assets/Fonts/Spectral-SemiBold.ttf",
+      "sha1": "16ab4605f9cb6dcb376f95299299b3d23d706b08"
+    },
+    {
+      "path": "src/Assets/Fonts/Spectral-SemiBoldItalic.ttf",
+      "sha1": "b9d0221cbca56e6a84f14c38cbaaffe9ed5aba5a"
+    }
+  ]
+}
