@@ -42,7 +42,7 @@ const QuizSlide = () => {
       try {
         const savedProgress = await Storage.getData(QUIZ_PROGRESS_KEY);
         const lastViewedQuizId = await Storage.getData(LAST_VIEWED_QUIZ_KEY);
-        
+
         if (savedProgress) {
           const parsedProgress = JSON.parse(savedProgress);
           setQuizData(parsedProgress);
@@ -97,7 +97,10 @@ const QuizSlide = () => {
   useEffect(() => {
     const saveLastViewedQuiz = async () => {
       if (selectedQuiz?.id) {
-        await Storage.saveData(LAST_VIEWED_QUIZ_KEY, JSON.stringify(selectedQuiz.id));
+        await Storage.saveData(
+          LAST_VIEWED_QUIZ_KEY,
+          JSON.stringify(selectedQuiz.id),
+        );
       }
     };
 
@@ -244,22 +247,21 @@ const QuizSlide = () => {
   };
 
   const _onBack = () => {
-    const currentIndex = quizData.findIndex(quiz => quiz.id === selectedQuiz.id);
+    const currentIndex = quizData.findIndex(
+      quiz => quiz.id === selectedQuiz.id,
+    );
     if (currentIndex > 0) {
-      // If there's a previous quiz, go back to it
       const previousQuiz = quizData[currentIndex - 1];
       setSelectedQuiz(previousQuiz);
-      
-      // Update the quiz data to mark current quiz as incomplete
+
       const updatedQuiz = quizData.map(item =>
         item.id === selectedQuiz.id
           ? {...selectedQuiz, isQusComplete: false, ans: undefined}
-          : item
+          : item,
       );
       setQuizData(updatedQuiz);
       saveQuizProgress(updatedQuiz);
     } else {
-      // If we're at the first quiz, navigate back
       Alert.alert(
         'Leave Quiz',
         'Are you sure you want to leave? Your progress will be saved.',
@@ -271,7 +273,10 @@ const QuizSlide = () => {
           {
             text: 'Leave',
             onPress: () => {
-              Storage.saveData(LAST_VIEWED_QUIZ_KEY, JSON.stringify(selectedQuiz.id));
+              Storage.saveData(
+                LAST_VIEWED_QUIZ_KEY,
+                JSON.stringify(selectedQuiz.id),
+              );
               navigation.goBack();
             },
           },
@@ -306,9 +311,7 @@ const QuizSlide = () => {
         </View>
         {selectedQuiz?.quizeType == 'radio' && (
           <View style={{flex: 1}}>
-            <View style={{flex: 1}}>
-              <Text style={styles.questionTxt}>{selectedQuiz?.question}</Text>
-            </View>
+            <Text style={styles.questionTxt}>{selectedQuiz?.question}</Text>
             <View style={styles.radioContainer}>
               {selectedQuiz.options.map((item: any, index: number) => {
                 return (
@@ -361,7 +364,7 @@ const QuizSlide = () => {
         )}
         {isContinueBtnShow(selectedQuiz?.quizeType) && (
           <Button
-            title="Continue"
+            title="Next >"
             onPress={_onContinue}
             style={styles.continueBtn}
             btnStyle={styles.continueBtnTxt}

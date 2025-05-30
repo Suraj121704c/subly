@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: wp(5),
     textAlign: 'center',
     marginTop: hp(5),
-    marginBottom: hp(12),
+    marginBottom: hp(2),
   },
   checkBoxBtn: {
     backgroundColor: '#e2e2e2',

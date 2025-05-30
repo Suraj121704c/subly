@@ -31,7 +31,6 @@ export const Images = {
   logout: require('../Assets/Images/logout.png'),
   terms: require('../Assets/Images/terms.png'),
   privacy: require('../Assets/Images/privacy.png'),
-  squareTick: require('../Assets/Images/squareTick.png'),
   square: require('../Assets/Images/square.png'),
   prayCoupleGlow: require('../Assets/Images/prayCoupleGlow.png'),
   graph: require('../Assets/Images/graph.png'),
@@ -50,4 +49,5 @@ export const Images = {
   // subly
   bannerSubly: require('../Assets/Images/bannerSubly.png'),
   sublyLogo: require('../Assets/Images/sublyLogo.png'),
+  squareTick: require('../Assets/Images/squareTick.png'),
 };

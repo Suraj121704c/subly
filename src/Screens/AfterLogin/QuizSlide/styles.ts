@@ -15,7 +15,6 @@ export const styles = StyleSheet.create({
   innerView: {
     flex: 1,
     marginHorizontal: wp(2),
-    marginVertical: hp(1),
   },
   couplePhoto: {
     width: wp(45),
@@ -41,9 +40,8 @@ export const styles = StyleSheet.create({
     color: Colors.black,
     fontSize: hp(2.5),
     fontFamily: fonts.spectralMedium,
-    marginTop: hp(8),
+    marginTop: hp(2),
     textAlign: 'center',
-    width: wp(60),
     alignSelf: 'center',
   },
   continueBtn: {
@@ -67,6 +65,7 @@ export const styles = StyleSheet.create({
     borderRadius: wp(2),
     borderWidth: wp(0.22),
     borderColor: Colors.gray,
+    marginTop: hp(3),
   },
   checkBoxBtn: {
     backgroundColor: `${Colors.gray}40`,
