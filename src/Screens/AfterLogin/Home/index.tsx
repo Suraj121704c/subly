@@ -180,7 +180,7 @@ const HomeScreen = () => {
     const checkAndShowPaywall = async () => {
       try {
         await Superwall.configure({
-          apiKey: 'pk_da187f1ba33d54d5151202eb779374da8436c614259127ff',
+          apiKey: 'pk_1e2c8284f8f19c856959c1b84f8bd7edbe1ade05a0e4d6e1',
         });
 
         const status = await Superwall.shared.getSubscriptionStatus();
@@ -209,7 +209,7 @@ const HomeScreen = () => {
       }
     };
 
-    checkAndShowPaywall();
+    // checkAndShowPaywall();
   }, []);
 
   return (

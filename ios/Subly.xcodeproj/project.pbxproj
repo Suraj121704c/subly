@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,7 +19,6 @@
 		439EE059265B4876A8E179E5 /* Geist-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1DD300792B084F9684884B51 /* Geist-Light.ttf */; };
 		5860DABA3923429FA5D56DDA /* Spectral-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 649E1AA29E7747BEB5853FD9 /* Spectral-ExtraLight.ttf */; };
 		6011A5CD794B4F41891E30EC /* Spectral-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C582ADE61DF46B3A96712D6 /* Spectral-LightItalic.ttf */; };
-		6D045EA7AD5E4AB18B0F17CD /* libPods-coupleBibleExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2769765EC542CE9731C78F82 /* libPods-coupleBibleExtension.a */; };
 		75A75512166B4916AC5D6D61 /* Geist-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 798E8288407145AA9A404A5F /* Geist-SemiBold.ttf */; };
 		7644E37DDC9144839DE29734 /* Geist-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 715BDE3C352E4D5FB1E29743 /* Geist-Regular.ttf */; };
 		7B614C2862DD4AC29969765B /* Spectral-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D205CAE32D674D2BB3AF4BFD /* Spectral-Medium.ttf */; };
@@ -38,9 +37,6 @@
 		D38CFED4A37548C48F5CE762 /* Spectral-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27CA62F2FB5846C598837CCA /* Spectral-Bold.ttf */; };
 		E3634389F7DE42FF90577F98 /* Spectral-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74FB855D83294441BC15740C /* Spectral-SemiBold.ttf */; };
 		E3A70299BDA0FEA9C5C75B3C /* libPods-Subly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D4BEF2F0366224E9052F0FA /* libPods-Subly.a */; };
-		ECD4E6A12DCCC3E20066006E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD4E6A02DCCC3E20066006E /* WidgetKit.framework */; };
-		ECD4E6A32DCCC3E20066006E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD4E6A22DCCC3E20066006E /* SwiftUI.framework */; };
-		ECD4E6B02DCCC3E50066006E /* coupleBibleExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = ECD4E69F2DCCC3E20066006E /* coupleBibleExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F232592BA4D84EF28F62162A /* Spectral-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EADE39C60D44C899FCA75BF /* Spectral-Light.ttf */; };
 		F4C8281C8B9C4F95830D33CD /* Spectral-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF12F7EA69DE412D9FA0132C /* Spectral-ExtraBold.ttf */; };
 /* End PBXBuildFile section */
@@ -53,28 +49,7 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = Subly;
 		};
-		ECD4E6AE2DCCC3E50066006E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ECD4E69E2DCCC3E20066006E;
-			remoteInfo = coupleBibleExtension;
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		ECD4E6B12DCCC3E50066006E /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				ECD4E6B02DCCC3E50066006E /* coupleBibleExtension.appex in Embed Foundation Extensions */,
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* SublyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SublyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,39 +95,12 @@
 		D1F3583828DF404E83469FBD /* Spectral-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Spectral-MediumItalic.ttf"; path = "../src/Assets/Fonts/Spectral-MediumItalic.ttf"; sourceTree = "<group>"; };
 		D205CAE32D674D2BB3AF4BFD /* Spectral-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Spectral-Medium.ttf"; path = "../src/Assets/Fonts/Spectral-Medium.ttf"; sourceTree = "<group>"; };
 		E96B5F75185143BA9AA7856D /* Spectral-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Spectral-ExtraBoldItalic.ttf"; path = "../src/Assets/Fonts/Spectral-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		ECD4E69F2DCCC3E20066006E /* coupleBibleExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = coupleBibleExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD4E6A02DCCC3E20066006E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		ECD4E6A22DCCC3E20066006E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		ECF7C8672DCF6F2300FCABAA /* coupleBibleExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = coupleBibleExtension.entitlements; sourceTree = "<group>"; };
 		ECFE74F72DA9977800B3EA5C /* BibleBondingDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = BibleBondingDebug.entitlements; path = Subly/BibleBondingDebug.entitlements; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F176D7BED04702FE63FA8EF0 /* Pods-Subly-SublyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Subly-SublyTests.release.xcconfig"; path = "Target Support Files/Pods-Subly-SublyTests/Pods-Subly-SublyTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		ECD4E6B42DCCC3ED0066006E /* Exceptions for "coupleBible" folder in "coupleBibleExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = ECD4E69E2DCCC3E20066006E /* coupleBibleExtension */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		ECD4E6A42DCCC3E20066006E /* coupleBible */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				ECD4E6B42DCCC3ED0066006E /* Exceptions for "coupleBible" folder in "coupleBibleExtension" target */,
-			);
-			explicitFileTypes = {
-			};
-			explicitFolders = (
-			);
-			path = coupleBible;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		00E356EB1AD99517003FC87E /* Frameworks */ = {
@@ -168,16 +116,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3A70299BDA0FEA9C5C75B3C /* libPods-Subly.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ECD4E69C2DCCC3E20066006E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ECD4E6A32DCCC3E20066006E /* SwiftUI.framework in Frameworks */,
-				ECD4E6A12DCCC3E20066006E /* WidgetKit.framework in Frameworks */,
-				6D045EA7AD5E4AB18B0F17CD /* libPods-coupleBibleExtension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,12 +207,10 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				ECF7C8672DCF6F2300FCABAA /* coupleBibleExtension.entitlements */,
 				A83290CB2DA1AEC40041737D /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* Subly */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* SublyTests */,
-				ECD4E6A42DCCC3E20066006E /* coupleBible */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -290,7 +226,6 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* Subly.app */,
 				00E356EE1AD99517003FC87E /* SublyTests.xctest */,
-				ECD4E69F2DCCC3E20066006E /* coupleBibleExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -328,6 +263,7 @@
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
 			name = SublyTests;
+			productName = SublyTests;
 			productReference = 00E356EE1AD99517003FC87E /* SublyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -341,7 +277,6 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				ECD4E6B12DCCC3E50066006E /* Embed Foundation Extensions */,
 				880DD4677BEB13C87F9E4663 /* [CP] Embed Pods Frameworks */,
 				AEFEB513EAB617ECD298B5EA /* [CP] Copy Pods Resources */,
 				A0F72E2082B168EA616D9850 /* [CP-User] [RNFB] Core Configuration */,
@@ -349,33 +284,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				ECD4E6AF2DCCC3E50066006E /* PBXTargetDependency */,
 			);
 			name = Subly;
 			productName = Subly;
 			productReference = 13B07F961A680F5B00A75B9A /* Subly.app */;
 			productType = "com.apple.product-type.application";
-		};
-		ECD4E69E2DCCC3E20066006E /* coupleBibleExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = ECD4E6B52DCCC3ED0066006E /* Build configuration list for PBXNativeTarget "coupleBibleExtension" */;
-			buildPhases = (
-				2D71BD6BFA3FF48658907E05 /* [CP] Check Pods Manifest.lock */,
-				ECD4E69B2DCCC3E20066006E /* Sources */,
-				ECD4E69C2DCCC3E20066006E /* Frameworks */,
-				ECD4E69D2DCCC3E20066006E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				ECD4E6A42DCCC3E20066006E /* coupleBible */,
-			);
-			name = coupleBibleExtension;
-			productName = coupleBibleExtension;
-			productReference = ECD4E69F2DCCC3E20066006E /* coupleBibleExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -392,9 +305,6 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1120;
-					};
-					ECD4E69E2DCCC3E20066006E = {
-						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
@@ -413,7 +323,6 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* Subly */,
 				00E356ED1AD99517003FC87E /* SublyTests */,
-				ECD4E69E2DCCC3E20066006E /* coupleBibleExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -460,13 +369,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECD4E69D2DCCC3E20066006E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -485,28 +387,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
-		};
-		2D71BD6BFA3FF48658907E05 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-coupleBibleExtension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		42C12F6A5BD1AC61EA0C855A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -672,13 +552,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECD4E69B2DCCC3E20066006E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -686,11 +559,6 @@
 			isa = PBXTargetDependency;
 			target = 13B07F861A680F5B00A75B9A /* Subly */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
-		};
-		ECD4E6AF2DCCC3E50066006E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ECD4E69E2DCCC3E20066006E /* coupleBibleExtension */;
-			targetProxy = ECD4E6AE2DCCC3E50066006E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -770,7 +638,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.subly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crackeddevs.sublyapp;
 				PRODUCT_NAME = Subly;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -801,7 +669,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.subly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crackeddevs.sublyapp;
 				PRODUCT_NAME = Subly;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -877,10 +745,7 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 			};
@@ -950,106 +815,10 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		ECD4E6B22DCCC3E50066006E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 852D7AA651A83FAAE6687834 /* Pods-coupleBibleExtension.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = coupleBibleExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = SZXVC68V4N;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = coupleBible/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = coupleBible;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.subly;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		ECD4E6B32DCCC3E50066006E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A741B54088E0A71256909242 /* Pods-coupleBibleExtension.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = coupleBibleExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = SZXVC68V4N;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = coupleBible/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = coupleBible;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.subly;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1079,15 +848,6 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ECD4E6B52DCCC3ED0066006E /* Build configuration list for PBXNativeTarget "coupleBibleExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ECD4E6B22DCCC3E50066006E /* Debug */,
-				ECD4E6B32DCCC3E50066006E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
