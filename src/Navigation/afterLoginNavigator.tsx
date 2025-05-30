@@ -19,7 +19,6 @@ import Intro from '../Screens/BeforeLogin/Intro';
 import QuizSection from '../Screens/AfterLogin/QwizSection';
 import QuizQuestions from '../Screens/AfterLogin/QuizQuestion';
 import QuizCompletion from '../Screens/AfterLogin/QuizCompletion';
-import ImageSllider from '../Screens/AfterLogin/ImageSlider';
 import BottomTabNavigator from './bottomTabNavigator';
 import Rating from '../Screens/AfterLogin/Rating';
 import AnimatedCouple from '../Screens/AfterLogin/AnimatedCouple';
@@ -153,10 +152,6 @@ const AfterLoginNavigator = () => {
         <AfterLoginStack.Screen
           name={Route.CoupleGraph}
           component={CoupleGraph}
-        />
-        <AfterLoginStack.Screen
-          name={Route.ImageSlider}
-          component={ImageSllider}
         />
         <AfterLoginStack.Screen
           name={Route.AnimatedCouple}

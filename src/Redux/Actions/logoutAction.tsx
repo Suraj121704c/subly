@@ -19,6 +19,8 @@ export const logOutAction = createAsyncThunk('logOutAction', async () => {
       await Storage.removeData('intro_carousel_progress');
       await Storage.removeData('image_slider_progress');
       await Storage.removeData('quiz_slide_progress');
+      await Storage.removeData('couple_quiz_progress');
+      await Storage.removeData('couple_last_viewed_quiz');
     }
     return null;
   } catch (error) {

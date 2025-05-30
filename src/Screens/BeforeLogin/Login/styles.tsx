@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: wp(5),
   },
   coupleBible: {
-    height: hp(8),
+    height: hp(6),
     resizeMode: 'contain',
     marginBottom: hp(2),
     marginTop: hp(2),
@@ -39,8 +39,8 @@ export const styles = StyleSheet.create({
     paddingHorizontal: wp(5),
   },
   titleBlack: {
-    fontSize: hp(3.5),
-    fontFamily: fonts.spectralRegular,
+    fontSize: hp(3.2),
+    fontFamily: fonts.spectralMedium,
     color: Colors.black,
     textAlign: 'center',
   },

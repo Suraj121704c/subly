@@ -118,6 +118,51 @@ export const quizSlideData = [
   },
 ];
 
+export const quizSlideData2 = [
+  {
+    id: 1,
+    question: 'How long do you want to listen daily?',
+    quizeType: 'radio',
+    isQusComplete: false,
+    options: [
+      {id: 1, question: '30 minutes', isSelected: false},
+      {id: 2, question: '1 hour', isSelected: false},
+      {id: 3, question: '2+ hours', isSelected: false},
+      {id: 4, question: 'I’ll listen as much as I can', isSelected: false},
+    ],
+  },
+  {
+    id: 2,
+    question: 'What’s your preferred listening experience?',
+    quizeType: 'radio',
+    isQusComplete: false,
+    options: [
+      {id: 1, question: 'Nature sounds (Rain, ocean, forest)', isSelected: false},
+      {
+        id: 2,
+        question: 'Binaural beats (Deep focus, relaxed)',
+        isSelected: false,
+      },
+      {id: 3, question: 'A layer of my favorite music', isSelected: false},
+      {id: 4, question: 'Silent mode (No audible sounds)', isSelected: false},
+      {id: 5, question: 'No preference', isSelected: false},
+    ],
+  },
+  {
+    id: 3,
+    question: 'Want to schedule automatic reminders??',
+    quizeType: 'radio',
+    isQusComplete: false,
+    options: [
+      {id: 1, question: 'Mornings', isSelected: false},
+      {id: 2, question: 'Afternoons', isSelected: false}, 
+      {id: 3, question: 'Evenings', isSelected: false}, 
+      {id: 4, question: 'Before sleep', isSelected: false},
+      {id: 5, question: 'No reminders', isSelected: false},
+    ],
+  },
+];
+
 export const imageSlideData = [
   {
     id: 1,
