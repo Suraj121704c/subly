@@ -176,7 +176,7 @@ const CoupleGraph = () => {
                   {item.isSelected && <View style={styles.checkBoxInnerView} />}
                 </View>
                 <Text style={styles.ansTxt}>{item.question}</Text>
-                {item.isSelected && (
+                {item.isSelected && selectedQuiz.mostEffective && (
                   <View style={styles.mostEffectiveView}>
                     <Text style={styles.mostEffectiveTxt}>Most effective</Text>
                   </View>

@@ -1,14 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  View,
-  Text,
-  Image,
-  SafeAreaView,
-  TouchableOpacity,
-  ImageBackground,
-  ActivityIndicator,
-  DeviceEventEmitter,
-} from 'react-native';
+import {View, Text, Image, SafeAreaView, ActivityIndicator} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Share from 'react-native-share';
 
@@ -17,6 +8,7 @@ import {styles} from './styles';
 import {Images} from '../../../Utils/images';
 import {Route} from '../../../Navigation/constants';
 import * as Storage from '../../../Services/AsyncStoreConfig';
+import Button from '../../../Components/Button';
 
 const IntroScreen = () => {
   const navigation = useNavigation<any>();
@@ -62,8 +54,22 @@ const IntroScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <ImageBackground
+    <SafeAreaView style={styles.container}>
+      <View style={styles.logoContainer}>
+        <Image source={Images.sublyLogo} style={styles.logoImg} />
+        <Image source={Images.mind} style={styles.mindImg} />
+        <Text style={styles.welcomeTxt}>
+          Welcome to you new version of you.
+        </Text>
+        <Text style={styles.journeyTxt}>Your journey starts now.</Text>
+      </View>
+      <Button
+        title="Begin your Transformation"
+        onPress={_onPressStart}
+        style={styles.button}
+        btnStyle={styles.buttonText}
+      />
+      {/* <ImageBackground
         source={Images.prayCoupleGlow}
         style={styles.imageHeader}
         resizeMode="cover"
@@ -87,8 +93,8 @@ const IntroScreen = () => {
         <TouchableOpacity style={styles.button} onPress={_onPressStart}>
           <Text style={styles.buttonText}>Let’s start</Text>
         </TouchableOpacity>
-      </View>
-    </View>
+      </View> */}
+    </SafeAreaView>
   );
 };
 

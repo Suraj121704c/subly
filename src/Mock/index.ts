@@ -124,6 +124,7 @@ export const quizSlideData2 = [
     question: 'How long do you want to listen daily?',
     quizeType: 'radio',
     isQusComplete: false,
+    mostEffective:true,
     options: [
       {id: 1, question: '30 minutes', isSelected: false},
       {id: 2, question: '1 hour', isSelected: false},
@@ -136,6 +137,7 @@ export const quizSlideData2 = [
     question: 'What’s your preferred listening experience?',
     quizeType: 'radio',
     isQusComplete: false,
+    mostEffective:false,
     options: [
       {id: 1, question: 'Nature sounds (Rain, ocean, forest)', isSelected: false},
       {
@@ -152,6 +154,7 @@ export const quizSlideData2 = [
     id: 3,
     question: 'Want to schedule automatic reminders??',
     quizeType: 'radio',
+    mostEffective:false,
     isQusComplete: false,
     options: [
       {id: 1, question: 'Mornings', isSelected: false},

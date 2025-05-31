@@ -57,4 +57,5 @@ export const Images = {
   calendar: require('../Assets/Images/calendar.png'),
   chat: require('../Assets/Images/chat.png'),
   comments: require('../Assets/Images/comments.png'),
+  mind: require('../Assets/Images/mind.png'),
 };
