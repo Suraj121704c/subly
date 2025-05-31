@@ -14,23 +14,6 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.white,
     alignItems: 'center',
   },
-  header: {
-    width: '100%',
-    paddingHorizontal: wp(5),
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  backText: {
-    fontSize: hp(2.2),
-    fontFamily: fonts.regular,
-    color: Colors.purple,
-  },
-  logoText: {
-    fontSize: hp(2.2),
-    fontFamily: fonts.spectralMedium,
-    color: Colors.black,
-  },
   logoBold: {
     fontFamily: fonts.bold,
   },
@@ -58,7 +41,7 @@ export const styles = StyleSheet.create({
   button: {
     backgroundColor: Colors.purple,
     paddingVertical: hp(1.5),
-    borderRadius: wp(10),
+    borderRadius: wp(3),
     width: wp(90),
     alignItems: 'center',
     justifyContent: 'center',
@@ -66,7 +49,7 @@ export const styles = StyleSheet.create({
     bottom: hp(4),
   },
   buttonText: {
-    fontSize: hp(2),
+    fontSize: hp(1.8),
     fontFamily: fonts.medium,
     color: Colors.white,
   },
@@ -77,7 +60,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   questionTxt: {
-    fontSize: hp(2.5),
+    fontSize: hp(2.2),
     fontFamily: fonts.spectralMedium,
     color: Colors.black,
     marginTop: hp(2),
@@ -88,19 +71,19 @@ export const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: wp(4),
     marginTop: hp(2),
-    borderWidth: 1,
-    borderColor: "#F2F2F3",
+    borderWidth: wp(0.5),
+    borderColor: '#F2F2F3',
     borderRadius: wp(2),
     paddingVertical: hp(2),
   },
   checkBoxBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: hp(1.5),
-    height: hp(5),
-    backgroundColor: "#F2F2F3",
+    paddingVertical: hp(1.8),
+    backgroundColor: '#F2F2F3',
     borderRadius: wp(2),
     paddingHorizontal: wp(2),
+    marginBottom: hp(1),
   },
   checkBoxView: {
     width: wp(6),
@@ -119,7 +102,7 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.purple,
   },
   ansTxt: {
-    fontSize: hp(2),
+    fontSize: hp(1.6),
     fontFamily: fonts.regular,
     color: Colors.black,
     flex: 1,
@@ -129,5 +112,16 @@ export const styles = StyleSheet.create({
     width: '100%',
     paddingTop: hp(4),
     paddingHorizontal: wp(4),
+  },
+  mostEffectiveTxt: {
+    fontSize: hp(1.5),
+    fontFamily: fonts.bold,
+    color: Colors.purple,
+  },
+  mostEffectiveView: {
+    backgroundColor: '#AA27F01A',
+    paddingHorizontal: wp(2),
+    paddingVertical: hp(0.5),
+    borderRadius: wp(4),
   },
 });

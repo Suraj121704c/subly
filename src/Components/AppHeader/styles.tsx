@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
   headerTitle: {
     fontSize: hp(2.5),
     color: '#000000',
-    fontFamily: fonts.bold,
+    fontFamily: fonts.medium,
     flex: 1,
     textAlign: 'center',
   },

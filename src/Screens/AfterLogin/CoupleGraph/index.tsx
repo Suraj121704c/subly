@@ -10,13 +10,19 @@ import {
   Alert,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
 
 // User-defined imports
-import {Images} from '../../../Utils/images';
 import {Route} from '../../../Navigation/constants';
 import {styles} from './styles';
 import * as Storage from '../../../Services/AsyncStoreConfig';
 import {quizSlideData2} from '../../../Mock';
+import {Colors} from '../../../Utils/colors';
+import Button from '../../../Components/Button';
+import AppHeader from '../../../Components/AppHeader';
 
 const COUPLE_QUIZ_PROGRESS_KEY = 'couple_quiz_progress';
 const COUPLE_LAST_VIEWED_QUIZ_KEY = 'couple_last_viewed_quiz';
@@ -148,12 +154,7 @@ const CoupleGraph = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.backText}>{"< Back"}</Text>
-        <Text style={styles.logoText}>Preferences</Text>
-        <View></View>
-      </View>
-
+      <AppHeader backIcon={true} headerTitle="Preferences" />
       <View style={styles.contentContainer}>
         <Text style={styles.questionTxt}>{selectedQuiz.question}</Text>
         <View style={styles.radioContainer}>
@@ -162,22 +163,35 @@ const CoupleGraph = () => {
               <TouchableOpacity
                 key={index}
                 onPress={() => _onSelectRadio(item)}
-                style={{...styles.checkBoxBtn, marginBottom: 8}}>
-                <View style={styles.checkBoxView}>
+                style={{
+                  ...styles.checkBoxBtn,
+                  borderColor: item.isSelected ? Colors.purple : Colors.gray,
+                  borderWidth: item.isSelected ? wp(0.5) : 0,
+                }}>
+                <View
+                  style={{
+                    ...styles.checkBoxView,
+                    borderColor: item.isSelected ? Colors.purple : Colors.gray,
+                  }}>
                   {item.isSelected && <View style={styles.checkBoxInnerView} />}
                 </View>
                 <Text style={styles.ansTxt}>{item.question}</Text>
+                {item.isSelected && (
+                  <View style={styles.mostEffectiveView}>
+                    <Text style={styles.mostEffectiveTxt}>Most effective</Text>
+                  </View>
+                )}
               </TouchableOpacity>
             );
           })}
         </View>
       </View>
-
-      <TouchableOpacity style={styles.button} onPress={handleNextPress}>
-        <Text style={styles.buttonText}>
-          {isLastQuestion ? 'Set Reminder' : 'Next'}
-        </Text>
-      </TouchableOpacity>
+      <Button
+        title={isLastQuestion ? 'Set Reminder' : 'Continue'}
+        onPress={handleNextPress}
+        style={styles.button}
+        btnStyle={styles.buttonText}
+      />
     </SafeAreaView>
   );
 };
