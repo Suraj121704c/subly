@@ -34,6 +34,20 @@ const CoupleGraph = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedQuiz, setSelectedQuiz] = useState<any>(null);
 
+  const handleBack = () => {
+    if (currentQuestionIndex > 0) {
+      const prevIndex = currentQuestionIndex - 1;
+      setCurrentQuestionIndex(prevIndex);
+      setSelectedQuiz(quizState[prevIndex]);
+      Storage.saveData(
+        COUPLE_LAST_VIEWED_QUIZ_KEY,
+        JSON.stringify(quizState[prevIndex].id),
+      );
+    } else {
+      navigation.goBack();
+    }
+  };
+
   useEffect(() => {
     const loadQuizProgress = async () => {
       try {
@@ -154,7 +168,11 @@ const CoupleGraph = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <AppHeader backIcon={true} headerTitle="Preferences" />
+      <AppHeader 
+        backIcon={true} 
+        headerTitle="Preferences" 
+        onBackPress={handleBack}
+      />
       <View style={styles.contentContainer}>
         <Text style={styles.questionTxt}>{selectedQuiz.question}</Text>
         <View style={styles.radioContainer}>

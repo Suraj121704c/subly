@@ -23,6 +23,7 @@ interface Props {
   rightIconStyle?: object;
   rightTxtStyle?: object;
   rightPress?: (event: GestureResponderEvent) => void;
+  onBackPress?: () => void;
 }
 
 const AppHeader = (data: Props) => {
@@ -38,6 +39,7 @@ const AppHeader = (data: Props) => {
     rightBtnStyle,
     rightBtn,
     rightPress,
+    onBackPress,
   } = data;
 
   return (
@@ -46,7 +48,7 @@ const AppHeader = (data: Props) => {
         <TouchableOpacity
           style={[styles.backIconOpacity, backBtnStyle]}
           onPress={() => {
-            navigation.goBack();
+            onBackPress ? onBackPress() : navigation.goBack();
           }}>
           <Image style={[styles.backIcon, backIconStyle]} source={Images.back} />
         </TouchableOpacity>
