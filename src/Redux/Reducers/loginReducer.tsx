@@ -1,6 +1,8 @@
 import {createSlice} from '@reduxjs/toolkit';
+
+//user-defined import files
 import {authenticationAction} from '../Actions/authenticationAction';
-import {logOutAction} from '../Actions/logoutAction';
+import {logOutAction, unAuthorizedAction} from '../Actions/logoutAction';
 import {loginAction} from '../../Screens/BeforeLogin/Login/Controller/action';
 
 const initialState = {
@@ -38,6 +40,10 @@ const loginSlice = createSlice({
       state.loginData = action.payload;
     });
     builder.addCase(logOutAction.rejected, (state: any, action) => {
+      state.loginData = action.payload;
+    });
+
+    builder.addCase(unAuthorizedAction.fulfilled, (state: any, action) => {
       state.loginData = action.payload;
     });
   },

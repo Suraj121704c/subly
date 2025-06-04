@@ -1,4 +1,4 @@
-import {instance, formInstance} from './axiosService';
+import { instance, formInstance } from "./axiosService";
 
 class ApiConfig {
   postJSON(URL: string, params = {}) {
@@ -21,10 +21,8 @@ class ApiConfig {
     return instance.put(URL, params);
   }
 
-  patchJSON(URL: string, params = {}, headers: {} = {}) {
-    return instance.patch(URL, params, {
-      headers,
-    });
+  patchJSON(URL: string, params = {}) {
+    return instance.patch(URL, params);
   }
 }
 

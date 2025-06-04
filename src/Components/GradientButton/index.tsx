@@ -22,11 +22,11 @@ interface ButtonProps extends TouchableOpacityProps {
 const GradientButton: React.FC<ButtonProps> = ({
   title,
   onPress,
-  activeOpacity = 0.7,
+  activeOpacity = 0.5,
   disabled = false,
   style,
   btnTxtStyle,
-  gradientColor = ['#DBA2FA', '#AA27F0'],
+  gradientColor = ['#FF2D57', '#FF5E00'],
 }) => {
   return (
     <TouchableOpacity

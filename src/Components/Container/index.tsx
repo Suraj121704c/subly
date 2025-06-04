@@ -3,13 +3,26 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {StatusBar, View} from 'react-native';
 
 const Container = (props: any) => {
-  const {children, statusBarColor, containerColor, barStyle} = props;
+  const {
+    children,
+    statusBarColor,
+    containerColor,
+    barStyle,
+    edges = ['right', 'left', 'top'],
+    statusBarHidden,
+  } = props;
+
   return (
     <SafeAreaView
       style={{flex: 1, backgroundColor: statusBarColor}}
-      edges={['right', 'left', 'top']}>
+      edges={edges}>
       <View style={{flex: 1, backgroundColor: containerColor}}>
-        <StatusBar backgroundColor={statusBarColor} barStyle={barStyle} />
+        <StatusBar
+          hidden={statusBarHidden}
+          translucent={true}
+          backgroundColor={statusBarColor}
+          barStyle={barStyle}
+        />
         {children}
       </View>
     </SafeAreaView>

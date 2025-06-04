@@ -22,6 +22,9 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import {Colors} from '../../Utils/colors';
+import GradientButton from '../GradientButton';
+import {styles} from './styles';
+import Button from '../Button';
 
 interface CarouselProps<T> {
   data: T[];
@@ -31,7 +34,8 @@ interface CarouselProps<T> {
   indicatorStyle?: StyleProp<ViewStyle>;
   indicator?: boolean;
   onLastItemReached?: any;
-  onScroll?: (event: any) => void;
+  onSignUP: () => void;
+  onLogin: () => void;
 }
 
 const Carousel = forwardRef(function Carousel<T>(
@@ -43,7 +47,8 @@ const Carousel = forwardRef(function Carousel<T>(
     indicatorStyle,
     indicator = true,
     onLastItemReached,
-    onScroll,
+    onSignUP,
+    onLogin,
   }: CarouselProps<T>,
   ref: any,
 ) {
@@ -52,7 +57,7 @@ const Carousel = forwardRef(function Carousel<T>(
 
   useEffect(() => {
     if (onLastItemReached) {
-      if (currentIndex == data.length - 1) {
+      if (currentIndex == 2) {
         onLastItemReached(true);
       } else {
         onLastItemReached(false);
@@ -66,7 +71,6 @@ const Carousel = forwardRef(function Carousel<T>(
         event.nativeEvent.layoutMeasurement.width,
     );
     setCurrentIndex(index);
-    onScroll?.(event);
   };
 
   // Function to scroll to the next item
@@ -98,23 +102,39 @@ const Carousel = forwardRef(function Carousel<T>(
         onMomentumScrollEnd={handleScroll}
       />
       {indicator && (
-        <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-          {data.map((_, index) => (
-            <TouchableOpacity
-              key={index}
-              style={[
-                {
-                  width: index === currentIndex ? wp(5) : wp(2),
-                  height: wp(2),
-                  borderRadius: 5,
-                  marginHorizontal: 2,
-                  backgroundColor:
-                    index === currentIndex ? Colors.purple : Colors.gray,
-                },
-                indicatorStyle,
-              ]}
+        <View style={styles.btnContainer}>
+          <View style={styles.loginBtnView}>
+            <GradientButton
+              title="Sign Up"
+              style={styles.signUpBtn}
+              btnTxtStyle={styles.signUpBtnTxt}
+              onPress={onSignUP}
             />
-          ))}
+            <Button
+              title="Login"
+              style={styles.loginBtn}
+              btnTxtStyle={styles.loginBtnTxt}
+              onPress={onLogin}
+            />
+          </View>
+          <View style={styles.indicatorView}>
+            {data.map((_, index) => (
+              <TouchableOpacity
+                key={index}
+                style={[
+                  {
+                    width: index === currentIndex ? 30 : 10,
+                    height: wp(2),
+                    borderRadius: 5,
+                    marginHorizontal: 2,
+                    backgroundColor:
+                      index === currentIndex ? Colors.red : Colors.lightGrey2,
+                  },
+                  indicatorStyle,
+                ]}
+              />
+            ))}
+          </View>
         </View>
       )}
     </View>

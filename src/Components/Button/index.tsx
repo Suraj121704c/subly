@@ -1,58 +1,36 @@
 import {
-  GestureResponderEvent,
-  Image,
   Text,
   TouchableOpacity,
-  ActivityIndicator,
+  TouchableOpacityProps,
+  StyleProp,
+  TextStyle,
+  ViewStyle,
 } from 'react-native';
-import React from 'react';
+import React, {memo} from 'react';
 
-//user-define Import files
-import {styles} from './style';
-import {Colors} from '../../Utils/colors';
-
-interface Props {
+interface ButtonProps extends TouchableOpacityProps {
   title?: string;
-  onPress: (event: GestureResponderEvent) => void;
-  style?: object;
-  btnTxt?: object;
-  icon?: number;
-  iconStyle?: object;
-  btnStyle?: object;
-  disabled?: boolean;
-  activeOpacity?: number;
-  loading?: boolean;
+  style?: StyleProp<ViewStyle>;
+  btnTxtStyle?: StyleProp<TextStyle>;
 }
 
-const Button = (data: Props) => {
-  const {
-    title,
-    icon,
-    onPress,
-    activeOpacity,
-    disabled,
-    style,
-    iconStyle,
-    btnStyle,
-    loading,
-  } = data;
-
+const Button: React.FC<ButtonProps> = ({
+  title,
+  onPress,
+  activeOpacity = 0.5,
+  disabled = false,
+  style,
+  btnTxtStyle,
+}) => {
   return (
     <TouchableOpacity
       activeOpacity={activeOpacity}
-      disabled={disabled || loading}
+      disabled={disabled}
       onPress={onPress}
       style={style}>
-      {loading ? (
-        <ActivityIndicator color={Colors.white} />
-      ) : (
-        <>
-          {icon && <Image source={icon} style={[styles.icon, iconStyle]} />}
-          {title && <Text style={btnStyle}>{title}</Text>}
-        </>
-      )}
+      {title && <Text style={btnTxtStyle}>{title}</Text>}
     </TouchableOpacity>
   );
 };
 
-export default Button;
+export default memo(Button);

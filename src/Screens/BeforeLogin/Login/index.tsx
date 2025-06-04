@@ -1,125 +1,114 @@
-import {
-  Alert,
-  Image,
-  SafeAreaView,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import React, {useEffect} from 'react';
-import appleAuth from '@invertase/react-native-apple-authentication';
-import {useDispatch} from 'react-redux';
+import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import React, {useRef, useState} from 'react';
+import PhoneInput from 'react-native-phone-number-input';
+import {useNavigation} from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
 
-//user-defined Import files
+//user-defined import files
+import {STRINGS} from '../../../Utils/constants';
 import {styles} from './styles';
+import {removeSpacialCharacter} from '../../../Validation';
+import GradientButton from '../../../Components/GradientButton';
 import {Images} from '../../../Utils/images';
-import {supabase} from '../../../Client/superbase';
-import {loginAction} from './Controller/action';
-import * as Storage from '../../../Services/AsyncStoreConfig';
+import {loginValidation} from '../../../Validation/loginValidation';
+import { loginAction } from './Controller/action';
 
+const initialForm = {
+  mobileNumber: __DEV__ ? '9458272811' : '',
+};
+
+const initialError = {
+  phoneError: '',
+};
 const Login = () => {
-  const dispatch = useDispatch();
+  const phoneInput = useRef<any>(null);
+  const dispatch = useDispatch<any>();
+  const navigation = useNavigation<any>();
+  const [form, setForm] = useState(initialForm);
+  const [error, setError] = useState(initialError);
 
-  useEffect(() => {
-    const step = async () => {
-      const step = await Storage.getData('step');
-      console.log('step', step);
-    };
-    step();
-  }, []);
+  const handleOnChangeText = (value: string, fieldName: string) => {
+    if (fieldName == 'mobileNumber') value = removeSpacialCharacter(value);
+    setForm({...form, [fieldName]: value});
+  };
 
-  async function appleLogin() {
-    try {
-      // First check if Apple authentication is available
-      const isAppleAuthAvailable = await appleAuth.isSupported;
-      if (!isAppleAuthAvailable) {
-        Alert.alert(
-          'Error',
-          'Apple authentication is not available on this device',
-        );
-        return;
+  const _onNext = () => {
+    const isValidPhone = phoneInput.current?.isValidNumber(form.mobileNumber);
+    const countryCode = phoneInput.current?.getCallingCode();
+    const flagCode = phoneInput.current?.getCountryCode();
+    const isValid = loginValidation({
+      ...form,
+      isValidPhone,
+    });
+    if (isValid) {
+      setError(isValid);
+      if (isValid.status) {
+        dispatch(loginAction(form));
+        console.log('form.mobileNumber', form.mobileNumber);
       }
-
-      const appleAuthRequestResponse = await appleAuth.performRequest({
-        requestedOperation: appleAuth.Operation.LOGIN,
-        requestedScopes: [appleAuth.Scope.FULL_NAME, appleAuth.Scope.EMAIL],
-      });
-
-      const {identityToken, nonce} = appleAuthRequestResponse;
-
-      if (!identityToken) {
-        throw new Error('No identity token received from Apple');
-      }
-
-      const fcmToken = await Storage.getData('fcmToken');
-
-      // Sign in with Supabase
-      const {data, error} = await supabase.auth.signInWithIdToken({
-        provider: 'apple',
-        token: identityToken,
-        nonce,
-      });
-
-      if (error) {
-        throw error;
-      }
-
-      if (!data?.user) {
-        throw new Error('No user data received from Supabase');
-      }
-
-      // Update device token if available
-      if (fcmToken) {
-        try {
-          await supabase.from('user_profile').upsert(
-            {
-              user_id: data.user.id,
-              device_token: fcmToken,
-            },
-            {
-              onConflict: 'user_id',
-            },
-          );
-        } catch (profileError) {
-          console.warn('Failed to update device token:', profileError);
-          // Continue with login even if device token update fails
-        }
-      }
-
-      // Dispatch login action
-      await dispatch(loginAction(data));
-    } catch (error: any) {
-      console.error('Apple sign-in failed:', error);
-
-      // Handle specific error cases
-      if (error.code === 'ERR_CANCELED') {
-        // User canceled the login
-        return;
-      }
-
-      Alert.alert(
-        'Login Failed',
-        error.message || 'An error occurred during login. Please try again.',
-      );
     }
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={{flexGrow: 1}}>
-        <Image source={Images.bannerSubly} style={styles.couplePhoto} />
-        <View style={styles.bottomView}>
-          <Image source={Images.sublyLogo} style={styles.coupleBible} />
-          <View style={styles.titleContainer}>
-            <Text style={styles.titleBlack}>Unlock lasting change with Subly’s subtle power.</Text>
-          </View>
-        </View>
-        <TouchableOpacity style={styles.registerBtn} onPress={appleLogin}>
-          <Image source={Images.appleLogo} style={styles.appleLogo} />
-          <Text style={styles.loginBtnText}>Continue with Apple</Text>
+      <View style={styles.innerContainer}>
+        <Text style={styles.headerTxt}>What’s your phone number? ☎️</Text>
+        <Text style={styles.headerTxt2}>We need to make sure you’re you</Text>
+        <PhoneInput
+          containerStyle={styles.phoneInputContainer}
+          placeholder={STRINGS.mobileNumber2}
+          value={form.mobileNumber}
+          textContainerStyle={styles.phoneTxtContainer}
+          codeTextStyle={styles.phoneCodeTxtStyle}
+          textInputStyle={styles.phoneInputStyle}
+          ref={phoneInput}
+          defaultValue={form.mobileNumber}
+          defaultCode="US"
+          layout="first"
+          onChangeText={value =>
+            handleOnChangeText(value.trim(), 'mobileNumber')
+          }
+          textInputProps={{
+            value: form.mobileNumber,
+          }}
+          onChangeFormattedText={text => {
+            // console.log('onChangeFormattedText Value: ', text);
+          }}
+        />
+        {error.phoneError && (
+          <Text style={styles.errorTxt}>{error.phoneError}</Text>
+        )}
+        <GradientButton
+          title="NEXT"
+          style={styles.loginBtn}
+          btnTxtStyle={styles.loginBtnTxt}
+          onPress={_onNext}
+        />
+      </View>
+      <View style={styles.loginWithView}>
+        <View style={styles.drawLine} />
+        <Text style={styles.orLoginWithTxt}>or login with</Text>
+        <View style={styles.drawLine} />
+      </View>
+      <View style={styles.socialBtnView}>
+        <TouchableOpacity>
+          <Image source={Images.apple} style={styles.appleIcn} />
         </TouchableOpacity>
-      </ScrollView>
+        <TouchableOpacity>
+          <Image source={Images.facebook} style={styles.appleIcn} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Image source={Images.google} style={styles.appleIcn} />
+        </TouchableOpacity>
+      </View>
+      {/* <View style={styles.signUpBtnView}>
+        <Text>Don’t have an account?</Text>
+        <Button
+          title=" Sign up"
+          btnTxtStyle={styles.signUpBtnTxt}
+          onPress={() => navigation.navigate(Route.Register)}
+        />
+      </View> */}
     </SafeAreaView>
   );
 };

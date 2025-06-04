@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.subly"
+    namespace "com.assignment"
     defaultConfig {
-        applicationId "com.subly"
+        applicationId "com.assignment"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -4,15 +4,10 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-//user-defined imports
+//user-define Import files
 import {Colors} from '../../Utils/colors';
-import {fonts} from '../../Utils/fonts';
 
 export const styles = StyleSheet.create({
-  spinnerTxt: {
-    color: '#000000',
-  },
-
   container: {
     flex: 1,
     alignItems: 'center',
@@ -31,26 +26,13 @@ export const styles = StyleSheet.create({
   },
   modalInnerView: {
     backgroundColor: Colors.white,
+    paddingHorizontal: wp(12),
+    paddingVertical: hp(5),
     borderRadius: wp(4),
-    width: wp(36),
-    height: hp(12),
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   loaderView: {
     position: 'absolute',
     bottom: 0,
     alignSelf: 'center',
-  },
-  loadingStyle: {
-    position: 'absolute',
-    top: hp(2.5),
-  },
-  processTxt: {
-    position: 'absolute',
-    bottom: hp(2),
-    color: Colors.black,
-    fontSize: hp(1.8),
-    fontFamily: fonts.medium,
   },
 });

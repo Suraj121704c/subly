@@ -1,29 +1,48 @@
-//user-define Import files
-import * as Storage from '../../Services/AsyncStoreConfig';
-import {supabase} from '../../Client/superbase';
 import {createAsyncThunk} from '@reduxjs/toolkit';
 
-export const logOutAction = createAsyncThunk('logOutAction', async () => {
-  try {
-    const pyar = await supabase.auth.signOut();
-    if (pyar) {
-      await Storage.removeData('accessToken');
-      await Storage.removeData('step');
-      await Storage.removeData('faithProgress');
-      await Storage.removeData('slideQuide');
-      await Storage.removeData('imageSlider');
-      await Storage.removeData('intoScreen');
-      await Storage.removeData('graph');
-      await Storage.removeData('animatedCouple');
-      await Storage.removeData('onboarding_progress');
-      await Storage.removeData('intro_carousel_progress');
-      await Storage.removeData('image_slider_progress');
-      await Storage.removeData('quiz_slide_progress');
-      await Storage.removeData('couple_quiz_progress');
-      await Storage.removeData('couple_last_viewed_quiz');
+//user-define Import files
+import * as Storage from '../../Services/AsyncStoreConfig';
+import {hideLoader, showLoader} from '../Reducers/loadingSlice';
+import {Api} from '../../Services/Api';
+import {logOutURL} from '../../Services/ApiConfig';
+import {errorMessage} from '../../Helper/toast';
+import {resetProfile} from '../Reducers/profileReducer';
+
+export const logOutAction = createAsyncThunk(
+  'logOutAction',
+  async (data, {dispatch, rejectWithValue}) => {
+    try {
+      dispatch(showLoader());
+      const response = await Api.postJSON(logOutURL);
+      dispatch(hideLoader());
+      if (response?.data?.status == 'success') {
+        await Storage.removeData('accessToken');
+        dispatch(resetProfile());
+        return null;
+      } else {
+        errorMessage(response.data.message);
+        return rejectWithValue(response?.data?.message);
+      }
+    } catch (error: any) {
+      dispatch(hideLoader());
+      console.log('logOut Error: ', error);
+      return rejectWithValue(error?.response?.data || error?.message);
     }
-    return null;
-  } catch (error) {
-    console.log('error', error);
-  }
-});
+  },
+);
+
+export const unAuthorizedAction = createAsyncThunk(
+  'unAuthorizedAction',
+  async (data, {dispatch}) => {
+    try {
+      dispatch(showLoader());
+      dispatch(hideLoader());
+      dispatch(resetProfile());
+      await Storage.removeData('accessToken');
+      return null;
+    } catch (error: any) {
+      dispatch(hideLoader());
+      console.log('logOut Error: ', error);
+    }
+  },
+);

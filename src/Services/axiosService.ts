@@ -1,23 +1,25 @@
 import axios from 'axios';
 
 //user-defined import files
+import {BaseUrl} from './ApiConfig';
+
 import store from '../Redux/store';
-import {BASE_URL} from './ApiConfig';
-import {logOutAction} from '../Redux/Actions/logoutAction';
+import {unAuthorizedAction} from '../Redux/Actions/logoutAction';
+import {STRINGS} from '../Utils/constants';
 
 export const instance = axios.create({
-  baseURL: BASE_URL,
+  baseURL: BaseUrl,
   timeout: 60000 * 4, // 4 mint
-  timeoutErrorMessage: 'Timeout Error',
+  timeoutErrorMessage: STRINGS.TIMEOUT_ERROR_MESSAGE,
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
 export const formInstance = axios.create({
-  baseURL: BASE_URL,
+  baseURL: BaseUrl,
   timeout: 60000 * 4, // 4 mint
-  timeoutErrorMessage: 'Timeout Error',
+  timeoutErrorMessage: STRINGS.TIMEOUT_ERROR_MESSAGE,
   headers: {
     'Content-Type': 'multipart/form-data; charset=utf-8;',
   },
@@ -40,15 +42,14 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   response => {
     if (response?.data?.status_code == 401) {
-      store.dispatch(logOutAction());
+      store.dispatch(unAuthorizedAction());
     }
     return response;
   },
   async error => {
-    console.log('Global Error2: ', JSON.stringify(error?.response?.data));
     // Check if the response status is 401
-    if (error.response && error?.response?.status === 401) {
-      store.dispatch(logOutAction());
+    if (error.response && error.response.status === 401) {
+      store.dispatch(unAuthorizedAction());
     }
     return Promise.reject(error);
   },
