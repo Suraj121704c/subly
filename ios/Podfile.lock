@@ -434,7 +434,7 @@ PODS:
   - RNGestureHandler (2.16.0):
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
-  - RNScreens (3.37.0):
+  - RNScreens (3.35.0):
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
     - React-RCTImage
@@ -630,10 +630,10 @@ SPEC CHECKSUMS:
   ReactCommon: 5307bd88aa11a192d8a75717e66d7b630d9bc8bd
   RNCAsyncStorage: b9f5f78da5d16a853fe3dc22e8268d932fc45a83
   RNGestureHandler: be422bc1b0a1deb4be02c41f0b8aea1438216d55
-  RNScreens: c1a851e518284641160aa5af4894479773a6e719
+  RNScreens: a568946532d3cabcb7f46fdc0a8dbada3dd5de44
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: d0003f849d2b5224c072cef6568b540d8bb15cd3
 
-PODFILE CHECKSUM: b9789f9025f430fd50cf27baf99c579174eb3da5
+PODFILE CHECKSUM: ae90df73aea8771a76b02491d057af26fedfb602
 
 COCOAPODS: 1.16.2

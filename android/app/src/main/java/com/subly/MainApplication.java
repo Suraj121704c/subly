@@ -1,4 +1,4 @@
-package com.assignment;
+package com.subly;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
