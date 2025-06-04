@@ -33,4 +33,6 @@ export const Route = {
   BookVerseExplanation: 'BookVerseExplanation',
   BookDetails: 'BookDetails',
   BookReminder: 'BookReminder',
+  SoundPlayer: 'SoundPlayer',
+  CreateSublyForm: 'CreateSublyForm',
 };

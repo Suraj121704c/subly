@@ -236,3 +236,31 @@ export const questions = [
     correctAnswer: 'Revelation',
   },
 ];
+
+export const subliminals = [
+  {
+    title: 'For my morning meditation',
+    subtitle: 'Peaceful hill sounds',
+    backgroundColor: '#FFF9E7'
+  },
+  {
+    title: 'Nightly journaling',
+    subtitle: 'Forest animals sounds',
+    backgroundColor: '#F5EDFF'
+  }
+]
+
+export const themes = [
+  {
+    title: 'Body manifestation',
+    image: Images.neck
+  },
+  {
+    title: 'Self Love',
+    image: Images.selflove
+  },
+  {
+    title: 'Study',
+    image: Images.study
+  },
+]

@@ -34,6 +34,8 @@ import PlanVerseExplanation from '../Screens/AfterLogin/PlanVerseExplanation';
 import BookDetails from '../Screens/AfterLogin/BookDetails';
 import BookVerseExplanation from '../Screens/AfterLogin/BookVerseExplanation';
 import BookReminder from '../Screens/AfterLogin/BookReminder';
+import SoundPlayer from '../Screens/AfterLogin/SoundPlayer';
+import CreateSublyForm from '../Screens/AfterLogin/CreateSublyForm';
 
 const AfterLoginStack = createNativeStackNavigator();
 
@@ -214,6 +216,14 @@ const AfterLoginNavigator = () => {
         <AfterLoginStack.Screen
           name={Route.BookReminder}
           component={BookReminder}
+        />
+        <AfterLoginStack.Screen
+          name={Route.SoundPlayer}
+          component={SoundPlayer}
+        />
+        <AfterLoginStack.Screen
+          name={Route.CreateSublyForm}
+          component={CreateSublyForm}
         />
       </AfterLoginStack.Navigator>
     </>
