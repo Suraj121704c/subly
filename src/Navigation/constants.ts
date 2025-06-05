@@ -35,4 +35,7 @@ export const Route = {
   BookReminder: 'BookReminder',
   SoundPlayer: 'SoundPlayer',
   CreateSublyForm: 'CreateSublyForm',
+  Affrimation: 'Affrimation',
+  CustomizeSublimal: 'CustomizeSublimal',
+  CreateSublimalFinal: 'CreateSublimalFinal',
 };

@@ -72,4 +72,10 @@ export const Images = {
   skip_next: require(path + 'skip_next.png'),
   skip_prev: require(path + 'skip_prev.png'),
   next: require(path + 'next.png'),
+  record: require(path + 'record.png'),
+  upload: require(path + 'upload.png'),
+  success: require(path + 'success.png'),
+  mail: require(path + 'mail.png'),
+  policy: require(path + 'policy.png'),
+  shield: require(path + 'shield.png'),
 };

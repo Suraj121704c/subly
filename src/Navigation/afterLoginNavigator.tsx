@@ -36,6 +36,9 @@ import BookVerseExplanation from '../Screens/AfterLogin/BookVerseExplanation';
 import BookReminder from '../Screens/AfterLogin/BookReminder';
 import SoundPlayer from '../Screens/AfterLogin/SoundPlayer';
 import CreateSublyForm from '../Screens/AfterLogin/CreateSublyForm';
+import Affrimation from '../Screens/AfterLogin/Affrimation';
+import CustomizeSublimal from '../Screens/AfterLogin/CustomizeSublimal';
+import CreateSublimalFinal from '../Screens/AfterLogin/CreateSublimalFinal';
 
 const AfterLoginStack = createNativeStackNavigator();
 
@@ -224,6 +227,18 @@ const AfterLoginNavigator = () => {
         <AfterLoginStack.Screen
           name={Route.CreateSublyForm}
           component={CreateSublyForm}
+        />
+        <AfterLoginStack.Screen
+          name={Route.Affrimation}
+          component={Affrimation}
+        />
+        <AfterLoginStack.Screen
+          name={Route.CustomizeSublimal}
+          component={CustomizeSublimal}
+        />
+        <AfterLoginStack.Screen
+          name={Route.CreateSublimalFinal}
+          component={CreateSublimalFinal}
         />
       </AfterLoginStack.Navigator>
     </>

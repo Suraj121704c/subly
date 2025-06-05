@@ -14,6 +14,7 @@ import {useNavigation} from '@react-navigation/native';
 import {styles} from './styles';
 import {Images} from '../../../Utils/images';
 import Button from '../../../Components/Button';
+import {Route} from '../../../Navigation/constants';
 
 interface FrequencyOption {
   id: string;
@@ -103,7 +104,7 @@ const CreateSublyForm = () => {
       </View>
       <Button
         title="Next"
-        onPress={() => {}}
+        onPress={() => navigation.navigate(Route.Affrimation)}
         style={styles.nextButton}
         btnStyle={styles.nextButtonText}
       />
