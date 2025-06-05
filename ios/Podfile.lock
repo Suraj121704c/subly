@@ -563,6 +563,17 @@ PODS:
   - RNGestureHandler (2.16.0):
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
+  - RNImageCropPicker (0.50.1):
+    - RCT-Folly (= 2021.07.22.00)
+    - React-Core
+    - React-RCTImage
+    - RNImageCropPicker/QBImagePickerController (= 0.50.1)
+    - TOCropViewController (~> 2.7.4)
+  - RNImageCropPicker/QBImagePickerController (0.50.1):
+    - RCT-Folly (= 2021.07.22.00)
+    - React-Core
+    - React-RCTImage
+    - TOCropViewController (~> 2.7.4)
   - RNNotifee (9.1.8):
     - React-Core
     - RNNotifee/NotifeeCore (= 9.1.8)
@@ -598,6 +609,7 @@ PODS:
     - Superscript (= 0.2.4)
   - TextToSpeech (4.1.1):
     - React-Core
+  - TOCropViewController (2.7.4)
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -656,6 +668,7 @@ DEPENDENCIES:
   - "RNFBMessaging (from `../node_modules/@react-native-firebase/messaging`)"
   - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - "RNNotifee (from `../node_modules/@notifee/react-native`)"
   - RNReactNativeSharedGroupPreferences (from `../node_modules/react-native-shared-group-preferences`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
@@ -686,6 +699,7 @@ SPEC REPOS:
     - SocketRocket
     - Superscript
     - SuperwallKit
+    - TOCropViewController
 
 EXTERNAL SOURCES:
   boost:
@@ -788,6 +802,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-fs"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNImageCropPicker:
+    :path: "../node_modules/react-native-image-crop-picker"
   RNNotifee:
     :path: "../node_modules/@notifee/react-native"
   RNReactNativeSharedGroupPreferences:
@@ -874,6 +890,7 @@ SPEC CHECKSUMS:
   RNFBMessaging: 65b436add429c5fd8fed20643c3a92916d275444
   RNFS: 89de7d7f4c0f6bafa05343c578f61118c8282ed8
   RNGestureHandler: be422bc1b0a1deb4be02c41f0b8aea1438216d55
+  RNImageCropPicker: 5669a597b643930e4f507233de190f22bc485187
   RNNotifee: 5e3b271e8ea7456a36eec994085543c9adca9168
   RNReactNativeSharedGroupPreferences: d4869af3c7757405b6b5ac633d0ef5f9886a9be7
   RNReanimated: 9beee423b68c68341377ce94270b1ee2560c2e01
@@ -886,6 +903,7 @@ SPEC CHECKSUMS:
   superwall-react-native: 5c7c91cccf3a44fea1367bf1cbf78821b9a660fd
   SuperwallKit: 953b1a572c6fec762727d610926c9b518e553176
   TextToSpeech: 89b239221ec378d213af422d14789a729705360b
+  TOCropViewController: 80b8985ad794298fb69d3341de183f33d1853654
   Yoga: d0003f849d2b5224c072cef6568b540d8bb15cd3
 
 PODFILE CHECKSUM: 5a5c66fcf35b0834011e6be5222c6767820e8e25

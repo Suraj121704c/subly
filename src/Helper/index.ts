@@ -1,3 +1,6 @@
+import { Alert } from "react-native";
+import ImageCropPicker from "react-native-image-crop-picker";
+
 export const isContinueBtnShow = (status: string) => {
   switch (status) {
     case 'radio':
@@ -45,5 +48,26 @@ export const filterSelectedQuestions = (array: any, type: string) => {
   } else {
     // Return an empty array if type is not 'checkbox' or 'radio'
     return [];
+  }
+};
+
+export const openGallery = async (): Promise<any | false> => {
+  try {
+    const image = await ImageCropPicker.openPicker({
+      width: 300,
+      height: 400,
+      cropping: true,
+      mediaType: 'photo',
+    });
+
+    console.log('Selected Image from Gallery:', image);
+    return image;
+  } catch (error: any) {
+    if (error.code === 'E_PERMISSION_MISSING') {
+      Alert.alert('Storage permission is required to select photos.');
+    } else {
+      console.log('User cancelled Gallery:', error.message);
+    }
+    return false;
   }
 };

@@ -8,10 +8,12 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import ImagePicker from 'react-native-image-crop-picker';
 
 // user defined imports
 import {styles} from './styles';
 import {Images} from '../../../Utils/images';
+import {openGallery} from '../../../Helper';
 
 const CreateSublimalFinal = () => {
   const navigation = useNavigation<any>();
@@ -20,8 +22,11 @@ const CreateSublimalFinal = () => {
   const [isPublic, setIsPublic] = useState<boolean>(false);
 
   // Simulate image selection
-  const handleUpload = () => {
-    setImage('dummy_image'); // Replace with actual image picker logic later
+  const handleUpload = async () => {
+    const image = await openGallery();
+    if (image) {
+      setImage(image.path);
+    }
   };
 
   return (
@@ -42,7 +47,7 @@ const CreateSublimalFinal = () => {
         <View style={styles.uploadBox}>
           <TouchableOpacity style={styles.uploadButton} onPress={handleUpload}>
             {image ? (
-              <Image source={Images.success} style={styles.uploadIcon} />
+              <Image source={{uri: image}} style={styles.uploadIcon} />
             ) : (
               <Image source={Images.upload} style={styles.uploadIcon} />
             )}
