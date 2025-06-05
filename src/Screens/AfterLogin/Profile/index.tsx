@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   Image,
   Linking,
+  ScrollView,
 } from 'react-native';
 import Share from 'react-native-share';
 
@@ -20,90 +21,64 @@ const SettingsScreen = () => {
   const dispatch = useDispatch<any>();
   const {user} = useSelector((state: any) => state.userProfile);
 
-  const handleDeleteAccount = async () => {
+
+  const _onLogout = () => {
     dispatch(logOutAction());
   };
 
-  const handleShare = async () => {
-    const shareOptions = {
-      title: 'Share with partner and friends!',
-      message: 'Peace be with you',
-      url: 'https://couplebiblebackend-production.up.railway.app/',
-    };
+  // const handleShare = async () => {
+  //   const shareOptions = {
+  //     title: 'Share with partner and friends!',
+  //     message: 'Peace be with you',
+  //     url: 'https://couplebiblebackend-production.up.railway.app/',
+  //   };
 
-    try {
-      await Share.open(shareOptions);
-    } catch (error) {
-      console.error('Error sharing:', error);
-    }
-  };
+  //   try {
+  //     await Share.open(shareOptions);
+  //   } catch (error) {
+  //     console.error('Error sharing:', error);
+  //   }
+  // };
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Image source={Images.coupleBible} style={styles.logo} />
-
-        <Text style={styles.sectionTitle}>Legal and support</Text>
-        <View style={styles.card}>
-          <TouchableOpacity style={styles.listItem} onPress={handleShare}>
-            <View style={styles.iconLabel}>
-              <Image source={Images.send} style={styles.itemIcon} />
-              <Text style={styles.itemText}>
-                Share with partner and friends!
-              </Text>
-            </View>
-            <Text style={styles.itemArrow}>→</Text>
+      <ScrollView contentContainerStyle={{flexGrow: 1}}>
+        <View style={styles.header}>
+          <Image source={Images.logo} style={styles.logo} />
+        </View>
+        <View style={styles.profileSection}>
+          <Image source={Images.soundPlayer_bg} style={styles.avatar} />
+          <Text style={styles.profileName}>My Subly</Text>
+        </View>
+        <Text style={styles.settingsTitle}>Settings</Text>
+        <View style={styles.settingsBox}>
+          <TouchableOpacity style={styles.settingsItem}>
+            <Image source={Images.shield} style={styles.iconShield} />
+            <Text style={styles.settingsText}>Terms and Conditions</Text>
+            <Image source={Images.arrowRight} style={styles.arrowIcon} />
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.listItem}
-            onPress={() =>
-              Linking.openURL(
-                'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/',
-              )
-            }>
-            <View style={styles.iconLabel}>
-              <Image source={Images.terms} style={styles.itemIcon} />
-              <Text style={styles.itemText}>Terms and conditions</Text>
-            </View>
-            <Text style={styles.itemArrow}>→</Text>
+          <TouchableOpacity style={styles.settingsItem}>
+            <Image source={Images.policy} style={styles.iconDoc} />
+            <Text style={styles.settingsText}>Privacy Policy</Text>
+            <Image source={Images.arrowRight} style={styles.arrowIcon} />
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.listItem}
-            onPress={() => Linking.openURL('https://www.subly.fun/privacy')}>
-            <View style={styles.iconLabel}>
-              <Image source={Images.privacy} style={styles.itemIcon} />
-              <Text style={styles.itemText}>Privacy policy</Text>
-            </View>
-            <Text style={styles.itemArrow}>→</Text>
+          <TouchableOpacity style={styles.settingsItem}>
+            {/* <View style={styles.iconMail} /> */}
+            <Image source={Images.mail} style={styles.iconMail} />
+            <Text style={styles.settingsText}>Support</Text>
+            <Image source={Images.arrowRight} style={styles.arrowIcon} />
           </TouchableOpacity>
         </View>
-
-        <Text style={styles.sectionTitle}>Account actions</Text>
-        <View style={styles.card}>
-          <Text style={styles.emailText}>{user?.email}</Text>
-          <View style={styles.divider} />
-
-          <TouchableOpacity
-            style={styles.listItem}
-            onPress={() => dispatch(logOutAction())}>
-            <View style={styles.iconLabel}>
-              <Image source={Images.logout} style={styles.itemIcon} />
-              <Text style={styles.itemText}>Log out</Text>
-            </View>
-            <Text style={styles.itemArrow}>→</Text>
+        {/* Buttons */}
+        <View style={styles.buttonSection}>
+          <TouchableOpacity style={styles.logoutButton} onPress={_onLogout}>
+            <Text style={styles.logoutButtonText}>Log out</Text>
           </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.listItem}
-            onPress={handleDeleteAccount}>
-            <View style={styles.iconLabel}>
-              <Image source={Images.trash} style={styles.itemIcon} />
-              <Text style={styles.deleteText}>Delete account</Text>
-            </View>
-            <Text style={[styles.itemArrow, {color: '#ef4444'}]}>→</Text>
+          <TouchableOpacity onPress={_onLogout} style={styles.deleteButton}>
+            <Text style={styles.deleteButtonText}>Delete Account</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
