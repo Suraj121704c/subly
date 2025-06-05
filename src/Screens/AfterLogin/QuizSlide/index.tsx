@@ -14,6 +14,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import {useNavigation} from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
 
 //user-define import files
 import {Images} from '../../../Utils/images';
@@ -23,15 +24,17 @@ import {quizSlideData} from '../../../Mock';
 import {Colors} from '../../../Utils/colors';
 import {Route} from '../../../Navigation/constants';
 import * as Storage from '../../../Services/AsyncStoreConfig';
-import {isContinueBtnShow} from '../../../Helper';
+import {filterSelectedQuestions, isContinueBtnShow} from '../../../Helper';
 import SliderQuiz from '../../../Components/SliderQuiz';
 import CheckboxQuiz from '../../../Components/CheckBoxQuiz';
 import PillQuiz from '../../../Components/PillQuiz';
+import { questionAnswerAction } from './Controller/action';
 
 const QUIZ_PROGRESS_KEY = 'quiz_slide_progress';
 const LAST_VIEWED_QUIZ_KEY = 'last_viewed_quiz';
 
 const QuizSlide = () => {
+  const dispatch = useDispatch<any>();
   const navigation = useNavigation<any>();
   const [quizData, setQuizData] = useState(quizSlideData);
   const [selectedQuiz, setSelectedQuiz] = useState<any>(quizSlideData[0]);
@@ -154,6 +157,19 @@ const QuizSlide = () => {
     if (nextQuiz) {
       setSelectedQuiz(nextQuiz);
     } else {
+      let params: any = {};
+      const arr = [
+        'acheivement',
+        'experience',
+        'listening_time',
+        'thought_struggles',
+        'subconscious_resistence',
+      ];
+      updatedQuiz.forEach((item: any, index: number) => {
+        item.ans = filterSelectedQuestions(item.options, item.quizeType);
+        params[arr[index]] = item.ans;
+      });
+      dispatch(questionAnswerAction(params));
       navigation.navigate(Route.Intro);
     }
   };
