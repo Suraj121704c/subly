@@ -23,6 +23,7 @@ import {quizSlideData2} from '../../../Mock';
 import {Colors} from '../../../Utils/colors';
 import Button from '../../../Components/Button';
 import AppHeader from '../../../Components/AppHeader';
+import {filterSelectedQuestions} from '../../../Helper';
 
 const COUPLE_QUIZ_PROGRESS_KEY = 'couple_quiz_progress';
 const COUPLE_LAST_VIEWED_QUIZ_KEY = 'couple_last_viewed_quiz';
@@ -148,6 +149,17 @@ const CoupleGraph = () => {
     } else {
       // All questions completed
       navigation.navigate(Route.IntoScreen);
+      let params: any = {};
+      const arr = [
+        'daily_duration',
+        'listening_experience',
+        'subliminals_schedule',
+      ];
+      updatedQuiz.forEach((item: any, index: number) => {
+        item.ans = filterSelectedQuestions(item.options, item.quizeType);
+        params[arr[index]] = item.ans;
+      });
+      console.log('params', JSON.stringify(params));
       Storage.saveData('graph', 'added');
     }
   };
@@ -168,9 +180,9 @@ const CoupleGraph = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <AppHeader 
-        backIcon={true} 
-        headerTitle="Preferences" 
+      <AppHeader
+        backIcon={true}
+        headerTitle="Preferences"
         onBackPress={handleBack}
       />
       <View style={styles.contentContainer}>
