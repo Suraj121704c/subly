@@ -127,10 +127,10 @@ export const quizSlideData2 = [
     isQusComplete: false,
     mostEffective:true,
     options: [
-      {id: 1, question: '30 minutes', isSelected: false},
-      {id: 2, question: '1 hour', isSelected: false},
-      {id: 3, question: '2+ hours', isSelected: false},
-      {id: 4, question: 'I’ll listen as much as I can', isSelected: false},
+      {id: 1, question: '30 minutes', isSelected: false,value: 30},
+      {id: 2, question: '1 hour', isSelected: false,value: 60},
+      {id: 3, question: '2+ hours', isSelected: false,value: 120},
+      {id: 4, question: 'I’ll listen as much as I can', isSelected: false,value:0},
     ],
   },
   {
@@ -140,15 +140,16 @@ export const quizSlideData2 = [
     isQusComplete: false,
     mostEffective:false,
     options: [
-      {id: 1, question: 'Nature sounds (Rain, ocean, forest)', isSelected: false},
+      {id: 1, question: 'Nature sounds (Rain, ocean, forest)', isSelected: false,value: 'natural_sounds'},
       {
         id: 2,
         question: 'Binaural beats (Deep focus, relaxed)',
         isSelected: false,
+        value: 'binaural_beats',
       },
-      {id: 3, question: 'A layer of my favorite music', isSelected: false},
-      {id: 4, question: 'Silent mode (No audible sounds)', isSelected: false},
-      {id: 5, question: 'No preference', isSelected: false},
+      {id: 3, question: 'A layer of my favorite music', isSelected: false,value: 'favorite'},
+      {id: 4, question: 'Silent mode (No audible sounds)', isSelected: false,value: 'silent_mode'},
+      {id: 5, question: 'No preference', isSelected: false,value: 'no_preference'},
     ],
   },
   {
@@ -158,11 +159,11 @@ export const quizSlideData2 = [
     mostEffective:false,
     isQusComplete: false,
     options: [
-      {id: 1, question: 'Mornings', isSelected: false},
-      {id: 2, question: 'Afternoons', isSelected: false}, 
-      {id: 3, question: 'Evenings', isSelected: false}, 
-      {id: 4, question: 'Before sleep', isSelected: false},
-      {id: 5, question: 'No reminders', isSelected: false},
+      {id: 1, question: 'Mornings', isSelected: false,value: 'mornings'},
+      {id: 2, question: 'Afternoons', isSelected: false,value: 'afternoons'}, 
+      {id: 3, question: 'Evenings', isSelected: false,value: 'evenings'}, 
+      {id: 4, question: 'Before sleep', isSelected: false,value: 'before_sleep'},
+      {id: 5, question: 'No reminders', isSelected: false,value: 'no_reminders'},
     ],
   },
 ];
