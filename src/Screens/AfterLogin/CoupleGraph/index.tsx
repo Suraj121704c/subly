@@ -14,6 +14,7 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
+import { useDispatch } from 'react-redux';
 
 // User-defined imports
 import {Route} from '../../../Navigation/constants';
@@ -24,12 +25,14 @@ import {Colors} from '../../../Utils/colors';
 import Button from '../../../Components/Button';
 import AppHeader from '../../../Components/AppHeader';
 import {filterSelectedQuestions} from '../../../Helper';
+import { preferenceAction } from './Controller/action';
 
 const COUPLE_QUIZ_PROGRESS_KEY = 'couple_quiz_progress';
 const COUPLE_LAST_VIEWED_QUIZ_KEY = 'couple_last_viewed_quiz';
 
 const CoupleGraph = () => {
   const navigation = useNavigation<any>();
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
   const [quizState, setQuizState] = useState<any[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -159,7 +162,7 @@ const CoupleGraph = () => {
         item.ans = filterSelectedQuestions(item.options, item.quizeType);
         params[arr[index]] = item.ans;
       });
-      console.log('params', JSON.stringify(params));
+      dispatch(preferenceAction(params));
       Storage.saveData('graph', 'added');
     }
   };

@@ -12,3 +12,4 @@ export const SET_REMINDER_URL = `/api/reminders`;
 
 export const QUESTION_ANSWER_URL = `/questions`;
 export const Preference_URL = `/preferences`;
+export const CREATE_SUBLIMINAL_URL = `/subliminals`;

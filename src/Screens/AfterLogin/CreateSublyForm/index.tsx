@@ -15,29 +15,30 @@ import {styles} from './styles';
 import {Images} from '../../../Utils/images';
 import Button from '../../../Components/Button';
 import {Route} from '../../../Navigation/constants';
+import { successMessage } from '../../../Helper/toast';
+import { getFrequencyValue } from '../../../Helper';
 
 interface FrequencyOption {
   id: string;
   title: string;
   frequency: string;
   selected?: boolean;
+  value:number[]
 }
 
 const CreateSublyForm = () => {
   const navigation = useNavigation<any>();
-  const [selectedFrequency, setSelectedFrequency] = useState<string | null>(
-    null,
-  );
+  const [selectedFrequency, setSelectedFrequency] = useState<string>('');
   const [customFrequency, setCustomFrequency] = useState<string>('');
 
   const frequencyOptions: FrequencyOption[] = [
-    {id: '0', title: 'No frequency', frequency: ''},
-    {id: '1', title: 'Reduces stress', frequency: '7-12 Hz'},
-    {id: '2', title: 'Boosts alertness', frequency: '13-35 Hz'},
-    {id: '3', title: 'Improves deep sleep', frequency: '13-35 Hz'},
-    {id: '4', title: 'Focus and concentration', frequency: '13-35 Hz'},
-    {id: '5', title: 'For a meditative state', frequency: '13-35 Hz'},
-    {id: '6', title: 'Custom frequency', frequency: ''},
+    {id: '0', title: 'No frequency', frequency: '',value:[0,0]},
+    {id: '1', title: 'Reduces stress', frequency: '7-12 Hz',value:[7,12]},
+    {id: '2', title: 'Boosts alertness', frequency: '13-35 Hz',value:[13,35]},
+    {id: '3', title: 'Improves deep sleep', frequency: '13-35 Hz',value:[13,35]},
+    {id: '4', title: 'Focus and concentration', frequency: '13-35 Hz',value:[13,35]},
+    {id: '5', title: 'For a meditative state', frequency: '13-35 Hz',value:[13,35]},
+    {id: '6', title: 'Custom frequency', frequency: '',value:[0,0]},
   ];
 
   const RadioButton = ({selected}: {selected: boolean}) => (
@@ -50,6 +51,17 @@ const CreateSublyForm = () => {
     setSelectedFrequency(id);
     if (id !== '6') {
       setCustomFrequency('');
+    }
+  };
+
+  const handleNextPress = () => {
+    if(selectedFrequency || customFrequency){
+      const frequencyValue = getFrequencyValue(selectedFrequency,frequencyOptions)
+      console.log("frequencyValue",frequencyValue)
+      navigation.navigate(Route.Affrimation,{frequencyValue:frequencyValue})
+    }
+    else{
+      successMessage("Please select a frequency")
     }
   };
 
@@ -104,7 +116,7 @@ const CreateSublyForm = () => {
       </View>
       <Button
         title="Next"
-        onPress={() => navigation.navigate(Route.Affrimation)}
+        onPress={handleNextPress}
         style={styles.nextButton}
         btnStyle={styles.nextButtonText}
       />

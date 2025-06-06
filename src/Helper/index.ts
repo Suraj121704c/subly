@@ -71,3 +71,8 @@ export const openGallery = async (): Promise<any | false> => {
     return false;
   }
 };
+
+export const getFrequencyValue = (id:string,data:any) => {
+  const item = data.find((item:any) => item.id === id);
+  return item ? item.value : null; // Return value array if item found, else return null
+};

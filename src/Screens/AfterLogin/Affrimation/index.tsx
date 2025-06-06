@@ -9,7 +9,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 import React, {useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 
 //user-defined import files
 import {styles} from './styles';
@@ -26,10 +26,13 @@ const initialAffirmation = (type = 'text') => ({
 
 const Affrimation = () => {
   const navigation = useNavigation<any>();
+  const {frequencyValue} = useRoute<any>().params;
   const [tab, setTab] = useState<'type' | 'record'>('type');
   const [affirmations, setAffirmations] = useState([
     initialAffirmation('text'),
   ]);
+
+  console.log('frequencyValue', frequencyValue);
 
   const hasUnsavedData = () => {
     return affirmations.some(a => a.value || a.audioUri);
@@ -240,7 +243,11 @@ const Affrimation = () => {
         <TouchableOpacity
           style={[styles.nextButton, !canProceed && styles.nextButtonDisabled]}
           disabled={!canProceed}
-          onPress={() => navigation.navigate(Route.CustomizeSublimal)}>
+          onPress={() =>
+            navigation.navigate(Route.CustomizeSublimal, {
+              frequencyValue: frequencyValue,
+            })
+          }>
           <Text style={styles.nextButtonText}>Next</Text>
         </TouchableOpacity>
       </View>

@@ -7,16 +7,20 @@ import {
   TextInput,
 } from 'react-native';
 import React, {useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import ImagePicker from 'react-native-image-crop-picker';
+import { useDispatch } from 'react-redux';
 
 // user defined imports
 import {styles} from './styles';
 import {Images} from '../../../Utils/images';
 import {openGallery} from '../../../Helper';
+import {createSublimalAction} from './Controller/action';
 
 const CreateSublimalFinal = () => {
+  const dispatch = useDispatch();
   const navigation = useNavigation<any>();
+  const {params} = useRoute<any>().params;
   const [image, setImage] = useState<string | null>(null);
   const [title, setTitle] = useState<string>('');
   const [isPublic, setIsPublic] = useState<boolean>(false);
@@ -28,6 +32,10 @@ const CreateSublimalFinal = () => {
       setImage(image.path);
     }
   };
+
+  const handleCreateSublimal = () => {
+    dispatch(createSublimalAction(params))  
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -91,7 +99,7 @@ const CreateSublimalFinal = () => {
       </View>
       {/* Create Button at the bottom */}
       <View style={{marginBottom: 10}}>
-        <TouchableOpacity style={styles.createButton}>
+        <TouchableOpacity style={styles.createButton} onPress={handleCreateSublimal}>
           <Text style={styles.createButtonText}>Create subliminal</Text>
         </TouchableOpacity>
       </View>

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, SafeAreaView, TouchableOpacity, Image} from 'react-native';
 import Slider from '@react-native-community/slider';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 
 // user defined imports
 import {styles} from './styles';
@@ -9,11 +9,23 @@ import {Images} from '../../../Utils/images';
 import {Route} from '../../../Navigation/constants';
 
 const CustomizeSublimal = () => {
+  const {frequencyValue} = useRoute<any>().params;
   const navigation = useNavigation<any>();
   const [volume, setVolume] = useState(0);
   const [speed, setSpeed] = useState(1);
   const [silence, setSilence] = useState(0);
   const [stereo, setStereo] = useState('Both');
+
+  const handleNextPress = () => {
+    const params = {
+      frequencyValue: frequencyValue,
+      volume: JSON.parse(volume.toFixed(1)),
+      speed: JSON.parse(speed.toFixed(1)),
+      silence: JSON.parse(silence.toFixed(1)),
+      stereo: stereo.toLowerCase(),
+    };
+    navigation.navigate(Route.CreateSublimalFinal, {params: params});
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -106,9 +118,7 @@ const CustomizeSublimal = () => {
           </View>
         </View>
 
-        <TouchableOpacity
-          onPress={() => navigation.navigate(Route.CreateSublimalFinal)}
-          style={styles.nextButton}>
+        <TouchableOpacity onPress={handleNextPress} style={styles.nextButton}>
           <Text style={styles.nextButtonText}>Next</Text>
         </TouchableOpacity>
       </View>
