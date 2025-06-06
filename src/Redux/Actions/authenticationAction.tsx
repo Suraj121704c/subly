@@ -12,6 +12,11 @@ export const authenticationAction = createAsyncThunk(
     // Storage.removeData("quiz_slide_progress");
     // Storage.removeData("last_viewed_quiz");
     // Storage.removeData("slideQuide");
+    // Storage.removeData("step");
+    // Storage.removeData("intro_carousel_progress");
+    // Storage.removeData("couple_quiz_progress");
+    // Storage.removeData("couple_last_viewed_quiz");
+
     if (isLoginUser) {
       console.log('isLoginUser', isLoginUser);
       attachTokenToRequest(isLoginUser);

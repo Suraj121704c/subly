@@ -56,11 +56,11 @@ export const quizSlideData = [
     quizeType: 'checkbox',
     isQusComplete: false,
     options: [
-      {id: 1, question: 'Glow up', isSelected: false},
-      {id: 2, question: 'Body and face transformation', isSelected: false},
-      {id: 3, question: 'Confidence and charisma', isSelected: false},
-      {id: 4, question: 'Wealth and success', isSelected: false},
-      {id: 5, question: 'Other personal goals', isSelected: false},
+      {id: 1, question: 'Glow up', isSelected: false,value: 'glow_up'},
+      {id: 2, question: 'Body and face transformation', isSelected: false,value: 'body_transformation'},
+      {id: 3, question: 'Confidence and charisma', isSelected: false,value: 'confidence_charisma'},
+      {id: 4, question: 'Wealth and success', isSelected: false,value: 'wealth_success'},
+      {id: 5, question: 'Other personal goals', isSelected: false,value: 'other_goals'},
     ],
   },
   {
@@ -69,13 +69,14 @@ export const quizSlideData = [
     quizeType: 'radio',
     isQusComplete: false,
     options: [
-      {id: 1, question: 'I use subliminals regularly', isSelected: false},
+      {id: 1, question: 'I use subliminals regularly', isSelected: false,value: 'regular'},
       {
         id: 2,
         question: 'I use subliminals but I\'m inconsistent',
         isSelected: false,
-      },
-      {id: 3, question: 'I\'m new to subliminals', isSelected: false},
+        value: 'inconsistent',
+          },
+      {id: 3, question: 'I\'m new to subliminals', isSelected: false,value: 'new'},
     ],
   },
   {
@@ -84,10 +85,10 @@ export const quizSlideData = [
     quizeType: 'checkbox',
     isQusComplete: false,
     options: [
-      {id: 1, question: 'While sleeping', isSelected: false},
-      {id: 2, question: 'During daily activities', isSelected: false},
-      {id: 3, question: 'During meditation', isSelected: false},
-      {id: 4, question: 'I\'m not sure yet', isSelected: false},
+      {id: 1, question: 'While sleeping', isSelected: false,value: 'sleeping'},
+      {id: 2, question: 'During daily activities', isSelected: false,value: 'daily_activity'},
+      {id: 3, question: 'During meditation', isSelected: false,value: 'meditation'},
+      {id: 4, question: 'I\'m not sure yet', isSelected: false,value: 'not_sure'},
     ],
   },
   {
@@ -96,11 +97,11 @@ export const quizSlideData = [
     quizeType: 'checkbox',
     isQusComplete: false,
     options: [
-      {id: 1, question: 'I doubt I can change', isSelected: false},
-      {id: 2, question: 'I struggle with consistency', isSelected: false},
-      {id: 3, question: 'I fear failure', isSelected: false},
-      {id: 4, question: 'I\'m too impatient for results', isSelected: false},
-      {id: 5, question: 'None of these', isSelected: false},
+      {id: 1, question: 'I doubt I can change', isSelected: false,value: 'doubt_change'},
+      {id: 2, question: 'I struggle with consistency', isSelected: false,value: 'consistency'},
+      {id: 3, question: 'I fear failure', isSelected: false,value: 'fear_failure'},
+      {id: 4, question: 'I\'m too impatient for results', isSelected: false,value: 'impatience'},
+      {id: 5, question: 'None of these', isSelected: false,value: 'none'},
     ],
   },
   {
@@ -109,11 +110,11 @@ export const quizSlideData = [
     quizeType: 'checkbox',
     isQusComplete: false,
     options: [
-      {id: 1, question: 'I doubt I can change', isSelected: false},
-      {id: 2, question: 'I doubt subliminals work', isSelected: false},
-      {id: 3, question: 'I get impatient for results', isSelected: false},
-      {id: 4, question: 'I forget to listen daily', isSelected: false},
-      {id: 5, question: 'None of these', isSelected: false},
+      {id: 1, question: 'I doubt I can change', isSelected: false,value: 'doubt_change'},
+      {id: 2, question: 'I doubt subliminals work', isSelected: false,value: 'doubt_effectiveness'},
+      {id: 3, question: 'I get impatient for results', isSelected: false,value: 'impatience'},
+      {id: 4, question: 'I forget to listen daily', isSelected: false,value: 'forget'},
+      {id: 5, question: 'None of these', isSelected: false,value: 'none'},
     ],
   },
 ];

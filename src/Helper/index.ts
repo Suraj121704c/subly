@@ -39,12 +39,12 @@ export const filterSelectedQuestions = (array: any, type: string) => {
     // Return array of questions where isSelected is true
     const selectedQuestions = array
       .filter((item: any) => item.isSelected)
-      .map((item: any) => item.question);
+      .map((item: any) => item.value);
     return selectedQuestions.length > 0 ? selectedQuestions : [];
   } else if (type === 'radio') {
-    // Return only one question where isSelected is true, or empty string if none is selected
+    // Return only one value where isSelected is true, or empty string if none is selected
     const selected = array.find((item: any) => item.isSelected);
-    return selected ? selected.question : '';
+    return selected ? selected.value : '';
   } else {
     // Return an empty array if type is not 'checkbox' or 'radio'
     return [];
