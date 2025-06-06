@@ -18,10 +18,10 @@ const CustomizeSublimal = () => {
 
   const handleNextPress = () => {
     const params = {
-      frequencyValue: frequencyValue,
-      volume: JSON.parse(volume.toFixed(1)),
+      frequency: frequencyValue,
+      affirmation_volume: JSON.parse(volume.toFixed(1)),
       speed: JSON.parse(speed.toFixed(1)),
-      silence: JSON.parse(silence.toFixed(1)),
+      silence_between: JSON.parse(silence.toFixed(1)),
       stereo: stereo.toLowerCase(),
     };
     navigation.navigate(Route.CreateSublimalFinal, {params: params});

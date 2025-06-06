@@ -12,14 +12,14 @@ export const createSublimalAction = createAsyncThunk(
     try {
       dispatch(showLoader());
       console.log('params', JSON.stringify(params));
-      const payload = {
-        frequency: [100, 200],
-        affirmation_volume: 0.5,
-        speed: 2,
-        silence_between: 1,
-        stereo: 'both',
-      };
-      const response = await Api.postJSON(CREATE_SUBLIMINAL_URL, payload);
+      // const payload = {
+      //   frequency: [100, 200],
+      //   affirmation_volume: 0.5,
+      //   speed: 2,
+      //   silence_between: 1,
+      //   stereo: 'both',
+      // };
+      const response = await Api.postJSON(CREATE_SUBLIMINAL_URL, params);
       console.log('response', JSON.stringify(response));
       dispatch(hideLoader());
     } catch (error: any) {
