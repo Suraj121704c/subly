@@ -11,3 +11,4 @@ export const GET_BOOKLISTING_URL = `/api/books/`;
 export const SET_REMINDER_URL = `/api/reminders`;
 
 export const QUESTION_ANSWER_URL = `/questions`;
+export const Preference_URL = `/preferences`;

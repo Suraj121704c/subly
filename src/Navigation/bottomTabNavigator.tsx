@@ -16,6 +16,8 @@ import {Colors} from '../Utils/colors';
 import Profile from '../Screens/AfterLogin/Profile';
 import Plans from '../Screens/AfterLogin/Plans';
 import BibleVersions from '../Screens/AfterLogin/BibleVersion';
+import Library from '../Screens/AfterLogin/Library';
+import MySublimal from '../Screens/AfterLogin/MySublimal';
 
 const BottomStack = createBottomTabNavigator();
 
@@ -125,12 +127,12 @@ const BottomTabNavigator = () => {
                   focused={focused}
                   icon={Images.tactic}
                   iconStyle={styles.bottomImg}
-                  label="Plans"
+                  label="Library"
                 />
               ),
             }}
-            name={Route.Plans}
-            component={Plans}
+            name={Route.Library}
+            component={Library}
           />
           <BottomStack.Screen
             options={{
@@ -139,12 +141,12 @@ const BottomTabNavigator = () => {
                   focused={focused}
                   icon={Images.book}
                   iconStyle={styles.bottomImg}
-                  label="Bible"
+                  label="My Subly's"
                 />
               ),
             }}
-            name={Route.Bible}
-            component={BibleVersions}
+            name={Route.MySublimal}
+            component={MySublimal}
           />
 
           <BottomStack.Screen

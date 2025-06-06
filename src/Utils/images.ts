@@ -78,4 +78,5 @@ export const Images = {
   mail: require(path + 'mail.png'),
   policy: require(path + 'policy.png'),
   shield: require(path + 'shield.png'),
+  heart: require(path + 'heart.png'),
 };

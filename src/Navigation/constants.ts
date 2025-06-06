@@ -8,7 +8,7 @@ export const Route = {
   Intro: 'Intro',
   Login: 'Login',
   Register: 'Register',
-  Bible: 'Bible',
+  MySublimal: 'MySublimal',
 
   //AppStack Screen
   Home: 'Home',
@@ -26,7 +26,7 @@ export const Route = {
   CoupleGraph: 'CoupleGraph',
   AnimatedCouple: 'AnimatedCouple',
   KnowTheMeaning: 'KnowTheMeaning',
-  Plans: 'Plans',
+  Library: 'Library',
   PlanDetails: 'PlanDetails',
   SetReminderScreen: 'SetReminderScreen',
   PlanVerseExplanation: 'PlanVerseExplanation',
