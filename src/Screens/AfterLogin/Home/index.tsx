@@ -30,7 +30,7 @@ const HomeScreen = () => {
 
         if (status.status !== 'ACTIVE') {
           await Superwall.shared.register({
-            placement: 'campaign_trigger',
+            placement: 'SignUp',
             handler: {
               onPresent: info => console.log('Paywall shown:', info.name),
               onDismiss: async () => {
@@ -52,7 +52,7 @@ const HomeScreen = () => {
       }
     };
 
-    // checkAndShowPaywall();
+    checkAndShowPaywall();
   }, []);
 
   const _onMoreCategories = () => {
