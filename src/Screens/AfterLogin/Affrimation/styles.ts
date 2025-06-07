@@ -4,6 +4,10 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
+//user-defined import files
+import {Colors} from '../../../Utils/colors';
+import { fonts } from '../../../Utils/fonts';
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -23,7 +27,8 @@ export const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: wp(4),
-    color: '#a6a6a6',
+    color: Colors.black,
+    fontFamily:fonts.bold
   },
   backicon: {
     width: wp(2),
@@ -36,6 +41,29 @@ export const styles = StyleSheet.create({
     marginVertical: hp(2.5),
     borderRadius: wp(5),
     overflow: 'hidden',
+  },
+  speakerIcon:{
+    width:wp(5),
+    height:wp(5),
+    resizeMode:"contain"
+  },
+  speechBtn:{
+    flexDirection:"row",
+    alignSelf:"flex-start",
+    alignItems:"center",
+    justifyContent:"center",
+    borderWidth:wp(0.2),
+    borderColor:Colors.purple,
+    borderRadius:wp(4),
+    paddingHorizontal:wp(2),
+    paddingVertical:hp(0.5),
+    marginTop:hp(1)
+  },
+  speechTxt:{
+    fontSize:hp(1.6),
+    color:Colors.purple,
+    fontFamily:fonts.medium,
+    marginLeft:wp(1)
   },
   coverImage: {
     width: '100%',
@@ -59,25 +87,33 @@ export const styles = StyleSheet.create({
   tabRow: {
     flexDirection: 'row',
     marginBottom: hp(2),
+    backgroundColor: Colors.gray2,
+    borderRadius:wp(2),
+    paddingHorizontal:wp(1.5),
+    paddingVertical:hp(0.8)
   },
   tabButton: {
     flex: 1,
-    padding: wp(2),
-    borderBottomWidth: 1,
-    borderColor: '#ccc',
+    backgroundColor:Colors.gray2,
+    borderRadius:wp(2),
+    borderBottomWidth:0,
+    borderColor:Colors.purple,
+    height:hp(5),
+    alignItems:"center",
+    justifyContent:"center"
   },
-  tabButtonActive: {
-    borderBottomWidth: 2,
-    borderColor: '#a259ff',
+  selectedTabButton:{
+    borderBottomWidth:wp(0.5),
+    borderColor:Colors.purple,
+    backgroundColor:Colors.white
   },
   tabText: {
-    textAlign: 'center',
-    color: '#888',
-    fontWeight: '500',
-    fontSize: wp(4),
+    color: Colors.black,
+    fontSize: hp(2),
+    fontFamily:fonts.medium
   },
-  tabTextActive: {
-    color: '#a259ff',
+  selectedTabText:{
+    color:Colors.purple
   },
   stepText: {
     fontSize: hp(2),
@@ -139,14 +175,12 @@ export const styles = StyleSheet.create({
     fontWeight: '500',
   },
   nextButton: {
-    backgroundColor: '#a259ff',
-    padding: wp(4),
+    backgroundColor: Colors.purple,
     borderRadius: wp(2),
     alignItems: 'center',
-    marginTop: hp(1),
-  },
-  nextButtonDisabled: {
-    backgroundColor: '#ccc',
+    height:hp(6),
+    justifyContent:"center",
+    marginHorizontal:wp(4)
   },
   nextButtonText: {
     color: '#fff',
@@ -158,6 +192,43 @@ export const styles = StyleSheet.create({
     height: hp(8),
     marginBottom: hp(0.5),
     resizeMode: 'contain',
+  },
+  affrimationContainer:{
+    borderWidth:wp(0.2),
+    borderColor:Colors.purple,
+    borderRadius:wp(2),
+    marginBottom:hp(2),
+    paddingHorizontal:wp(4),
+    paddingVertical:hp(1),
+  },
+  affrimationInput:{
+    fontSize:wp(4),
+    color:Colors.black,
+    fontFamily:fonts.medium,
+    padding:0,
+    borderWidth:wp(0.2),
+    marginTop:hp(1),
+    paddingHorizontal:wp(2),
+    paddingVertical:hp(1),
+    borderRadius:wp(2),
+    borderColor:Colors.gray2,
+    backgroundColor:Colors.gray2,
+    height:hp(10)
+  },
+  affrimationRow:{
+    flexDirection:"row",
+    justifyContent:"space-between",
+    alignItems:"center",
+  },
+  affrimationText:{
+    fontSize:wp(4),
+    color:Colors.black,
+    fontFamily:fonts.medium
+  },
+  closeImg:{
+    width:wp(6),
+    height:wp(6),
+    resizeMode:"contain"
   },
   recordText: {
     fontSize: wp(3.8),

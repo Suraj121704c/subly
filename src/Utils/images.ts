@@ -47,6 +47,7 @@ export const Images = {
   bell: require(path + 'bell.png'),
   library: require(path + 'library.png'),
   star: require(path + 'star.png'),
+  speaker: require(path + 'speaker.png'),
   // subly
   bannerSubly: require(path + 'bannerSubly.png'),
   sublyLogo: require(path + 'sublyLogo.png'),

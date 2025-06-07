@@ -2,255 +2,162 @@ import {
   View,
   Text,
   TouchableOpacity,
-  TextInput,
-  Alert,
-  ScrollView,
   Image,
   SafeAreaView,
+  TextInput,
 } from 'react-native';
 import React, {useState} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 //user-defined import files
 import {styles} from './styles';
 import {Images} from '../../../Utils/images';
 import {Route} from '../../../Navigation/constants';
-
-const initialAffirmation = (type = 'text') => ({
-  type,
-  value: '',
-  audioUri: '',
-  isRecording: false,
-  isPaused: false,
-});
+import {Colors} from '../../../Utils/colors';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 const Affrimation = () => {
   const navigation = useNavigation<any>();
   const {frequencyValue} = useRoute<any>().params;
-  const [tab, setTab] = useState<'type' | 'record'>('type');
-  const [affirmations, setAffirmations] = useState([
-    initialAffirmation('text'),
-  ]);
+  const [activeTab, setActiveTab] = useState<string>('type');
+  const [addAffirmation, setAddAffirmation] = useState<any[]>([]);
 
   console.log('frequencyValue', frequencyValue);
 
-  const hasUnsavedData = () => {
-    return affirmations.some(a => a.value || a.audioUri);
-  };
-
-  const handleTabSwitch = (newTab: 'type' | 'record') => {
-    if (tab !== newTab && hasUnsavedData()) {
-      Alert.alert('Warning', 'Your data will be lost', [
-        {text: 'Cancel', style: 'cancel'},
-        {
-          text: 'Switch',
-          style: 'destructive',
-          onPress: () => {
-            setTab(newTab);
-            setAffirmations([
-              initialAffirmation(newTab === 'type' ? 'text' : 'audio'),
-            ]);
-          },
-        },
-      ]);
+  const handleAddAffirmation = () => {
+    if (activeTab === 'type') {
+      const addData = {
+        text: '',
+        id: addAffirmation.length + 1,
+      };
+      setAddAffirmation([...addAffirmation, addData]);
     } else {
-      setTab(newTab);
-      setAffirmations([
-        initialAffirmation(newTab === 'type' ? 'text' : 'audio'),
-      ]);
+      console.log('record');
     }
   };
 
-  const handleAdd = () => {
-    setAffirmations([
-      ...affirmations,
-      initialAffirmation(tab === 'type' ? 'text' : 'audio'),
-    ]);
+  const handleRemoveAffirmation = (id: number) => {
+    const filteredAffirmation = addAffirmation.filter(item => item.id !== id);
+    setAddAffirmation(filteredAffirmation);
   };
 
-  const handleRemove = (idx: number) => {
-    setAffirmations(affirmations.filter((_, i) => i !== idx));
+  const handleChangeAffirmation = (text: string, id: number) => {
+    const updatedAffirmation = addAffirmation.map(item =>
+      item.id === id ? {...item, text} : item,
+    );
+    setAddAffirmation(updatedAffirmation);
   };
 
-  const handleTTS = (text: string) => {
-    Alert.alert('TTS', `Would play: ${text}`);
+  const handleNextButton = () => {
+    navigation.navigate(Route.CustomizeSublimal, {
+      frequencyValue: frequencyValue,
+    });
   };
-
-  const handleAIGenerate = () => {
-    Alert.alert('AI', 'This would generate affirmations with AI.');
-  };
-
-  const handleRecord = (idx: number) => {
-    const updated = affirmations.map((a, i) => ({
-      ...a,
-      isRecording: i === idx,
-      isPaused: false,
-    }));
-    setAffirmations(updated);
-  };
-  const handlePause = (idx: number) => {
-    const updated = [...affirmations];
-    updated[idx].isPaused = true;
-    setAffirmations(updated);
-  };
-  const handleResume = (idx: number) => {
-    const updated = [...affirmations];
-    updated[idx].isPaused = false;
-    setAffirmations(updated);
-  };
-  const handleStop = (idx: number) => {
-    const updated = [...affirmations];
-    updated[idx].isRecording = false;
-    updated[idx].isPaused = false;
-    updated[idx].audioUri = 'audio-uri-placeholder';
-    updated[idx].value = 'Recorded audio';
-    setAffirmations(updated);
-  };
-
-  const canProceed = affirmations.some(a => a.value || a.audioUri);
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.inerContaiber}>
-        <View style={styles.header}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Image source={Images.back} style={styles.backicon} />
-          </TouchableOpacity>
-          <Text style={styles.headerText}>Create new Subly</Text>
-          <TouchableOpacity></TouchableOpacity>
-        </View>
-        <View style={styles.trackInfo}>
-          <Text style={styles.stepText}>2</Text>
-          <Text style={styles.trackTitle}>What's the affirmation?</Text>
-        </View>
-        <View style={styles.tabRow}>
-          <TouchableOpacity
-            style={[styles.tabButton, tab === 'type' && styles.tabButtonActive]}
-            onPress={() => handleTabSwitch('type')}>
-            <Text
-              style={[styles.tabText, tab === 'type' && styles.tabTextActive]}>
-              Type
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[
-              styles.tabButton,
-              tab === 'record' && styles.tabButtonActive,
-            ]}
-            onPress={() => handleTabSwitch('record')}>
-            <Text
-              style={[
-                styles.tabText,
-                tab === 'record' && styles.tabTextActive,
-              ]}>
-              Record
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <ScrollView style={{flex: 1}}>
-          {affirmations.map((a, idx) => (
-            <View key={idx} style={styles.card}>
-              {tab === 'type' ? (
-                <>
-                  <TextInput
-                    placeholder="Write your affirmation"
-                    value={a.value}
-                    onChangeText={text => {
-                      const updated = [...affirmations];
-                      updated[idx].value = text;
-                      setAffirmations(updated);
-                    }}
-                    style={styles.input}
-                  />
-                  <TouchableOpacity
-                    style={styles.ttsButton}
-                    onPress={() => handleTTS(a.value)}
-                    disabled={!a.value}>
-                    <Text style={styles.ttsButtonText}>Convert to Speech</Text>
-                  </TouchableOpacity>
-                </>
-              ) : (
-                <>
-                  {!a.isRecording && !a.audioUri && (
-                    <TouchableOpacity
-                      onPress={() => handleRecord(idx)}
-                      style={styles.recordStateRow}>
-                      <Image source={Images.record} style={styles.recordIcon} />
-                      <Text style={styles.recordText}>
-                        Tap to start recording
-                      </Text>
-                    </TouchableOpacity>
-                  )}
-                  {a.isRecording && !a.isPaused && (
-                    <View
-                      style={{alignItems: 'center', justifyContent: 'center'}}>
-                      <TouchableOpacity
-                        onPress={() => handlePause(idx)}
-                        style={styles.recordStateRow}>
-                        <Image
-                          source={Images.pause}
-                          style={styles.recordIcon}
-                        />
-                        <Text style={styles.recordText}>Tap to pause</Text>
-                      </TouchableOpacity>
-                    </View>
-                  )}
-                  {a.isRecording && a.isPaused && (
-                    <View style={styles.recordStateRow}>
-                      <TouchableOpacity onPress={() => handleResume(idx)}>
-                        <Image
-                          source={Images.play_purple}
-                          style={styles.recordIcon}
-                        />
-                      </TouchableOpacity>
-                      <Text style={styles.recordText}>Tap to continue</Text>
-                      <TouchableOpacity
-                        onPress={() => handleStop(idx)}
-                        style={[styles.ttsButton, {marginTop: 8}]}>
-                        <Text style={styles.ttsButtonText}>Stop & Save</Text>
-                      </TouchableOpacity>
-                    </View>
-                  )}
-                  {a.audioUri ? (
-                    <View style={{alignItems: 'center'}}>
-                      <Text>Recorded!</Text>
-                    </View>
-                  ) : null}
-                </>
-              )}
-              {affirmations.length > 1 && (
-                <TouchableOpacity
-                  onPress={() => handleRemove(idx)}
-                  style={styles.removeButton}>
-                  <Text style={styles.removeButtonText}>Remove</Text>
-                </TouchableOpacity>
-              )}
-            </View>
-          ))}
-          <TouchableOpacity onPress={handleAdd} style={styles.addButton}>
-            <Text style={styles.addButtonText}>+ Add another subliminal</Text>
-          </TouchableOpacity>
-          {tab === 'type' && (
+      <KeyboardAwareScrollView contentContainerStyle={{flexGrow: 1}}>
+        <View style={styles.inerContaiber}>
+          <View style={styles.header}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Image source={Images.back} style={styles.backicon} />
+            </TouchableOpacity>
+            <Text style={styles.headerText}>Create new Subly</Text>
+            <TouchableOpacity></TouchableOpacity>
+          </View>
+          <View style={styles.trackInfo}>
+            <Text style={styles.stepText}>2</Text>
+            <Text style={styles.trackTitle}>Add affirmation?</Text>
+          </View>
+          <View style={styles.tabRow}>
             <TouchableOpacity
-              onPress={handleAIGenerate}
-              style={styles.aiButton}>
-              <Text style={styles.aiButtonText}>
-                Generate subliminals with AI ✨
+              style={{
+                ...styles.tabButton,
+                ...(activeTab === 'type' && styles.selectedTabButton),
+              }}
+              onPress={() => setActiveTab('type')}>
+              <Text
+                style={{
+                  ...styles.tabText,
+                  ...(activeTab === 'type' && styles.selectedTabText),
+                }}>
+                Type
               </Text>
             </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                ...styles.tabButton,
+                ...(activeTab === 'record' && styles.selectedTabButton),
+              }}
+              onPress={() => setActiveTab('record')}>
+              <Text
+                style={{
+                  ...styles.tabText,
+                  ...(activeTab === 'record' && styles.selectedTabText),
+                }}>
+                Record
+              </Text>
+            </TouchableOpacity>
+          </View>
+          {activeTab === 'type' && (
+            <View>
+              {addAffirmation.map((item, index) => {
+                return (
+                  <View style={styles.affrimationContainer} key={index}>
+                    <View style={styles.affrimationRow}>
+                      <Text style={styles.affrimationText}>
+                        Affirmation {index + 1}
+                      </Text>
+                      <TouchableOpacity
+                        onPress={() => handleRemoveAffirmation(item.id)}>
+                        <Image
+                          source={Images.close}
+                          style={styles.closeImg}
+                          tintColor={Colors.red}
+                        />
+                      </TouchableOpacity>
+                    </View>
+                    <TextInput
+                      style={styles.affrimationInput}
+                      placeholder="Enter affirmation"
+                      placeholderTextColor={Colors.gray}
+                      multiline={true}
+                      value={item.text}
+                      onChangeText={text =>
+                        handleChangeAffirmation(text, item.id)
+                      }
+                    />
+                    {item.text.trim().length > 0 && (
+                      <TouchableOpacity style={styles.speechBtn}>
+                        <Image
+                          source={Images.speaker}
+                          style={styles.speakerIcon}
+                          tintColor={Colors.purple}
+                        />
+                        <Text style={styles.speechTxt}>Generate Speech</Text>
+                      </TouchableOpacity>
+                    )}
+                  </View>
+                );
+              })}
+            </View>
           )}
-        </ScrollView>
+          <TouchableOpacity
+            style={styles.addButton}
+            onPress={handleAddAffirmation}>
+            <Text style={styles.addButtonText}>+ Add affirmation</Text>
+          </TouchableOpacity>
+        </View>
         <TouchableOpacity
-          style={[styles.nextButton, !canProceed && styles.nextButtonDisabled]}
-          disabled={!canProceed}
-          onPress={() =>
-            navigation.navigate(Route.CustomizeSublimal, {
-              frequencyValue: frequencyValue,
-            })
-          }>
+          style={[styles.nextButton]}
+          onPress={handleNextButton}>
           <Text style={styles.nextButtonText}>Next</Text>
         </TouchableOpacity>
-      </View>
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   );
 };
