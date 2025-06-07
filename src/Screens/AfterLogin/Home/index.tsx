@@ -55,6 +55,10 @@ const HomeScreen = () => {
     // checkAndShowPaywall();
   }, []);
 
+  const _onMoreCategories = () => {
+    navigation.navigate(Route.BottomTab, {screen: Route.Library});
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
@@ -66,7 +70,11 @@ const HomeScreen = () => {
             resizeMode="contain"
           />
         </View>
-
+        <TouchableOpacity
+          style={styles.createButton}
+          onPress={() => navigation.navigate(Route.CreateSublyForm)}>
+          <Text style={styles.createButtonText}>+ Create new subliminal</Text>
+        </TouchableOpacity>
         {/* Your Sublys Section */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Your Sublys</Text>
@@ -97,7 +105,7 @@ const HomeScreen = () => {
 
         {/* Popular Themes Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Popular subliminal themes</Text>
+          <Text style={styles.sectionTitle}>Popular Categories</Text>
 
           <ScrollView
             horizontal
@@ -112,18 +120,13 @@ const HomeScreen = () => {
             ))}
           </ScrollView>
 
-          <TouchableOpacity style={styles.moreThemes}>
+          <TouchableOpacity
+            style={styles.moreThemes}
+            onPress={_onMoreCategories}>
             <Text style={styles.moreThemesText}>Explore more categories</Text>
             <Image source={Images.arrowRight} style={styles.arrowIcon} />
           </TouchableOpacity>
         </View>
-
-        {/* Create New Button */}
-        <TouchableOpacity
-          style={styles.createButton}
-          onPress={() => navigation.navigate(Route.CreateSublyForm)}>
-          <Text style={styles.createButtonText}>+ Create new subliminal</Text>
-        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );
