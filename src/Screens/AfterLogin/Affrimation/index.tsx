@@ -25,6 +25,7 @@ const Affrimation = () => {
   const {frequencyValue} = useRoute<any>().params;
   const [activeTab, setActiveTab] = useState<string>('type');
   const [addAffirmation, setAddAffirmation] = useState<any[]>([]);
+  const [addRecording, setAddRecording] = useState<any[]>([]);
 
   console.log('frequencyValue', frequencyValue);
 
@@ -36,13 +37,22 @@ const Affrimation = () => {
       };
       setAddAffirmation([...addAffirmation, addData]);
     } else {
-      console.log('record');
+      const addData = {
+        recording: '',
+        id: addRecording.length + 1,
+      };
+      setAddRecording([...addRecording, addData]);
     }
   };
 
   const handleRemoveAffirmation = (id: number) => {
-    const filteredAffirmation = addAffirmation.filter(item => item.id !== id);
-    setAddAffirmation(filteredAffirmation);
+    if (activeTab === 'type') {
+      const filteredAffirmation = addAffirmation.filter(item => item.id !== id);
+      setAddAffirmation(filteredAffirmation);
+    } else {
+      const filteredRecording = addRecording.filter(item => item.id !== id);
+      setAddRecording(filteredRecording);
+    }
   };
 
   const handleChangeAffirmation = (text: string, id: number) => {
@@ -141,6 +151,36 @@ const Affrimation = () => {
                         <Text style={styles.speechTxt}>Generate Speech</Text>
                       </TouchableOpacity>
                     )}
+                  </View>
+                );
+              })}
+            </View>
+          )}
+          {activeTab === 'record' && (
+            <View>
+              {addRecording.map((item, index) => {
+                return (
+                  <View style={styles.affrimationContainer} key={index}>
+                    <View style={styles.affrimationRow}>
+                      <Text style={styles.affrimationText}>
+                        Affirmation {index + 1}
+                      </Text>
+                      <View style={styles.recordingView}>
+                        <Text style={styles.recordingTxt}>Recording</Text>
+                        </View>
+                      <TouchableOpacity
+                        onPress={() => handleRemoveAffirmation(item.id)}>
+                        <Image
+                          source={Images.close}
+                          style={styles.closeImg}
+                          tintColor={Colors.red}
+                        />
+                      </TouchableOpacity>
+                    </View>
+                    <TouchableOpacity style={styles.playBtn}>
+                      <Image source={Images.pause} style={styles.playIcon} />
+                    </TouchableOpacity>
+                    <Text style={styles.recordingPauseTxt}>Recording... Tab icon to pause</Text>
                   </View>
                 );
               })}

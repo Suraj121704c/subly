@@ -6,7 +6,7 @@ import {
 
 //user-defined import files
 import {Colors} from '../../../Utils/colors';
-import { fonts } from '../../../Utils/fonts';
+import {fonts} from '../../../Utils/fonts';
 
 export const styles = StyleSheet.create({
   container: {
@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
   headerText: {
     fontSize: wp(4),
     color: Colors.black,
-    fontFamily:fonts.bold
+    fontFamily: fonts.bold,
   },
   backicon: {
     width: wp(2),
@@ -42,28 +42,62 @@ export const styles = StyleSheet.create({
     borderRadius: wp(5),
     overflow: 'hidden',
   },
-  speakerIcon:{
-    width:wp(5),
-    height:wp(5),
-    resizeMode:"contain"
+  speakerIcon: {
+    width: wp(5),
+    height: wp(5),
+    resizeMode: 'contain',
   },
-  speechBtn:{
-    flexDirection:"row",
-    alignSelf:"flex-start",
-    alignItems:"center",
-    justifyContent:"center",
-    borderWidth:wp(0.2),
-    borderColor:Colors.purple,
-    borderRadius:wp(4),
-    paddingHorizontal:wp(2),
-    paddingVertical:hp(0.5),
-    marginTop:hp(1)
+  speechBtn: {
+    flexDirection: 'row',
+    alignSelf: 'flex-start',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: wp(0.2),
+    borderColor: Colors.purple,
+    borderRadius: wp(4),
+    paddingHorizontal: wp(2),
+    paddingVertical: hp(0.5),
+    marginTop: hp(1),
   },
-  speechTxt:{
-    fontSize:hp(1.6),
-    color:Colors.purple,
-    fontFamily:fonts.medium,
-    marginLeft:wp(1)
+  playBtn: {
+    marginTop: hp(2),
+    alignSelf: 'center',
+    borderWidth: wp(0.2),
+    borderColor: Colors.purple,
+    borderRadius: wp(7),
+    width: wp(13),
+    height: wp(13),
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  playIcon: {
+    width: wp(12),
+    height: wp(12),
+    resizeMode: 'contain',
+  },
+  recordingPauseTxt: {
+    fontSize: hp(1.4),
+    color: Colors.gray,
+    fontFamily: fonts.medium,
+    marginVertical: hp(1),
+    textAlign: 'center',
+  },
+  recordingView: {
+    backgroundColor: Colors.gray2,
+    borderRadius: wp(2),
+    paddingHorizontal: wp(2),
+    paddingVertical: hp(0.5),
+  },
+  recordingTxt: {
+    fontSize: hp(1.4),
+    color: Colors.black,
+    fontFamily: fonts.medium,
+  },
+  speechTxt: {
+    fontSize: hp(1.6),
+    color: Colors.purple,
+    fontFamily: fonts.medium,
+    marginLeft: wp(1),
   },
   coverImage: {
     width: '100%',
@@ -88,32 +122,32 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: hp(2),
     backgroundColor: Colors.gray2,
-    borderRadius:wp(2),
-    paddingHorizontal:wp(1.5),
-    paddingVertical:hp(0.8)
+    borderRadius: wp(2),
+    paddingHorizontal: wp(1.5),
+    paddingVertical: hp(0.8),
   },
   tabButton: {
     flex: 1,
-    backgroundColor:Colors.gray2,
-    borderRadius:wp(2),
-    borderBottomWidth:0,
-    borderColor:Colors.purple,
-    height:hp(5),
-    alignItems:"center",
-    justifyContent:"center"
+    backgroundColor: Colors.gray2,
+    borderRadius: wp(2),
+    borderBottomWidth: 0,
+    borderColor: Colors.purple,
+    height: hp(5),
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  selectedTabButton:{
-    borderBottomWidth:wp(0.5),
-    borderColor:Colors.purple,
-    backgroundColor:Colors.white
+  selectedTabButton: {
+    borderBottomWidth: wp(0.5),
+    borderColor: Colors.purple,
+    backgroundColor: Colors.white,
   },
   tabText: {
     color: Colors.black,
     fontSize: hp(2),
-    fontFamily:fonts.medium
+    fontFamily: fonts.medium,
   },
-  selectedTabText:{
-    color:Colors.purple
+  selectedTabText: {
+    color: Colors.purple,
   },
   stepText: {
     fontSize: hp(2),
@@ -178,9 +212,9 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.purple,
     borderRadius: wp(2),
     alignItems: 'center',
-    height:hp(6),
-    justifyContent:"center",
-    marginHorizontal:wp(4)
+    height: hp(6),
+    justifyContent: 'center',
+    marginHorizontal: wp(4),
   },
   nextButtonText: {
     color: '#fff',
@@ -193,42 +227,42 @@ export const styles = StyleSheet.create({
     marginBottom: hp(0.5),
     resizeMode: 'contain',
   },
-  affrimationContainer:{
-    borderWidth:wp(0.2),
-    borderColor:Colors.purple,
-    borderRadius:wp(2),
-    marginBottom:hp(2),
-    paddingHorizontal:wp(4),
-    paddingVertical:hp(1),
+  affrimationContainer: {
+    borderWidth: wp(0.2),
+    borderColor: Colors.purple,
+    borderRadius: wp(2),
+    marginBottom: hp(2),
+    paddingHorizontal: wp(4),
+    paddingVertical: hp(1),
   },
-  affrimationInput:{
-    fontSize:wp(4),
-    color:Colors.black,
-    fontFamily:fonts.medium,
-    padding:0,
-    borderWidth:wp(0.2),
-    marginTop:hp(1),
-    paddingHorizontal:wp(2),
-    paddingVertical:hp(1),
-    borderRadius:wp(2),
-    borderColor:Colors.gray2,
-    backgroundColor:Colors.gray2,
-    height:hp(10)
+  affrimationInput: {
+    fontSize: wp(4),
+    color: Colors.black,
+    fontFamily: fonts.medium,
+    padding: 0,
+    borderWidth: wp(0.2),
+    marginTop: hp(1),
+    paddingHorizontal: wp(2),
+    paddingVertical: hp(1),
+    borderRadius: wp(2),
+    borderColor: Colors.gray2,
+    backgroundColor: Colors.gray2,
+    height: hp(10),
   },
-  affrimationRow:{
-    flexDirection:"row",
-    justifyContent:"space-between",
-    alignItems:"center",
+  affrimationRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
-  affrimationText:{
-    fontSize:wp(4),
-    color:Colors.black,
-    fontFamily:fonts.medium
+  affrimationText: {
+    fontSize: wp(4),
+    color: Colors.black,
+    fontFamily: fonts.medium,
   },
-  closeImg:{
-    width:wp(6),
-    height:wp(6),
-    resizeMode:"contain"
+  closeImg: {
+    width: wp(6),
+    height: wp(6),
+    resizeMode: 'contain',
   },
   recordText: {
     fontSize: wp(3.8),
