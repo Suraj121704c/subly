@@ -113,7 +113,7 @@ const HomeScreen = () => {
           </ScrollView>
 
           <TouchableOpacity style={styles.moreThemes}>
-            <Text style={styles.moreThemesText}>More themes</Text>
+            <Text style={styles.moreThemesText}>Explore more categories</Text>
             <Image source={Images.arrowRight} style={styles.arrowIcon} />
           </TouchableOpacity>
         </View>

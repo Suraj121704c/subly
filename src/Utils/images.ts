@@ -44,10 +44,9 @@ export const Images = {
   play: require(path + 'play.png'),
   pause: require(path + 'pause.png'),
   replay: require(path + 'replay.png'),
-  book: require(path + 'book.png'),
   bell: require(path + 'bell.png'),
-  tactic: require(path + 'tactic.png'),
-
+  library: require(path + 'library.png'),
+  star: require(path + 'star.png'),
   // subly
   bannerSubly: require(path + 'bannerSubly.png'),
   sublyLogo: require(path + 'sublyLogo.png'),

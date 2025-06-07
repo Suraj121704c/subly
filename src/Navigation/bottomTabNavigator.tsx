@@ -71,11 +71,7 @@ const BottomTabNavigator = () => {
   const CustomTab = (props: any) => {
     const {focused, icon, iconStyle} = props;
     return (
-      <View
-        style={[
-          styles.bottomBtnView,
-          {backgroundColor: focused ? '#F6E7FE' : Colors.white},
-        ]}>
+      <View style={[styles.bottomBtnView]}>
         <Image
           source={icon}
           style={{
@@ -103,6 +99,7 @@ const BottomTabNavigator = () => {
             headerShown: false,
             tabBarShowLabel: false,
             tabBarStyle: {
+              ...styles.tabContainerView,
               height: Platform.OS == 'android' ? hp(8) : hp(13),
             },
           }}>
@@ -125,7 +122,7 @@ const BottomTabNavigator = () => {
               tabBarIcon: ({focused}) => (
                 <CustomTab
                   focused={focused}
-                  icon={Images.tactic}
+                  icon={Images.library}
                   iconStyle={styles.bottomImg}
                   label="Library"
                 />
@@ -139,7 +136,7 @@ const BottomTabNavigator = () => {
               tabBarIcon: ({focused}) => (
                 <CustomTab
                   focused={focused}
-                  icon={Images.book}
+                  icon={Images.star}
                   iconStyle={styles.bottomImg}
                   label="My Subly's"
                 />
@@ -172,17 +169,23 @@ const BottomTabNavigator = () => {
 export default BottomTabNavigator;
 
 const styles = StyleSheet.create({
+  tabContainerView: {
+    backgroundColor: Colors.white,
+    borderTopRightRadius: wp(12),
+    borderTopLeftRadius: wp(12),
+    borderWidth: 2,
+    borderColor: Colors.purple,
+    borderTopWidth: wp(0.2),
+    borderTopColor: Colors.purple,
+  },
   bottomBtnView: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: hp(1),
-    paddingHorizontal: wp(5),
     borderRadius: wp(10),
-    marginBottom: hp(1),
   },
   bottomImg: {
-    width: hp(2.5),
-    height: hp(2.5),
+    width: hp(3),
+    height: hp(3),
     resizeMode: 'cover',
   },
   homeTab: {

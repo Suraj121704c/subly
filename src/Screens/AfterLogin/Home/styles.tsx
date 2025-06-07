@@ -69,20 +69,21 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: wp(4),
     backgroundColor: '#fff',
     borderRadius: wp(3),
     marginTop: hp(1),
     borderWidth: wp(0.5),
     borderColor: '#0F0E1129',
+    height:hp(6)
   },
   allSubliminalText: {
     fontSize: wp(4),
     marginRight: wp(2),
   },
   arrowIcon: {
-    width: wp(4),
-    height: wp(4),
+    width: hp(4),
+    height: wp(8),
+    resizeMode:"contain"
   },
   themesContainer: {
     marginBottom: hp(2),
@@ -117,9 +118,9 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: wp(4),
     backgroundColor: '#F5EDFF',
     borderRadius: wp(3),
+    height:hp(6)
   },
   moreThemesText: {
     fontSize: wp(4),
